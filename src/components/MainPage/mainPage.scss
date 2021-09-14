@@ -1,0 +1,90 @@
+.mainPage {
+  display: flex;
+  flex-direction: row;
+  .aboutProject{
+    display: flex;
+    flex-direction: column;
+    width: 48vw;
+    margin-left: 4.4vw;
+    margin-right: 4.4vw;
+    .upperPanel{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2.1vw;
+      span{
+        &:nth-child(1){
+          color: #0EC261;
+          font-size: 2.08vw;
+          font-weight: bold;
+        }
+        &:nth-child(2){
+          font-size: 1vw;
+          line-height: 16px;
+          color: #999999;
+        }
+      }
+    }
+    .mainPart{
+      display: flex;
+      flex-direction: column;
+      margin-top: 7.8vw;
+      span{
+        &:nth-child(1){
+          font-weight: bold;
+          font-size: 4.86vw;
+          line-height: 66px;
+        }
+        &:nth-child(2){
+          font-weight: bold;
+          font-size: 4.86vw;
+          line-height: 66px;
+          color: #0EC261;
+        }
+        &:nth-child(3){
+          font-size: 1.8vw;
+          line-height: 30px;
+          color: #999999;
+          margin-top: 2vw;
+        }
+      }
+      div{
+        display: block;
+        width:  17.36vw;
+        font-size: 1.25vw;
+        text-align: center;
+        padding: 0.8vw;
+        margin-top: 4vw;
+        background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+        background-blend-mode: darken;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        transition: all 1s ease 1s;
+        &:hover{
+          background: linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+        }
+      }
+    }
+    .bottomPanel{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 10vw;
+      span{
+        &:nth-child(1){
+          font-size: 0.9vw;
+          color: #999999;
+        }
+        &:nth-child(2){
+          a{
+            font-size: 0.9vw;
+            color: #121212;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
