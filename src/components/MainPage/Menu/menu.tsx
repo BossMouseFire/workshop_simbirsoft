@@ -10,33 +10,28 @@ const Menu:React.FC = () => {
             <div className={`${active ? "activeBurButton" : ""} burButton`} onClick={() => setActive(state => !state)}>
                 <span/>
             </div>
-
-            {active
-                ?
-                <div className={"block"}>
-                    <div className={"blockAction"}>
-                        <span>ПАРКОВКА</span>
-                        <span>СТРАХОВКА</span>
-                        <span>БЕНЗИН</span>
-                        <span>ОБСЛУЖИВАНИЕ</span>
-                    </div>
-                    <div className={"socialNetworks"}>
-                        <a href={"/"}>
-                            <img src={telegram}/>
-                        </a>
-                        <a href={"/"}>
-                            <img src={facebook}/>
-                        </a>
-                        <a href={"/"}>
-                            <img src={instagram}/>
-                        </a>
-                    </div>
+            <div className={`${active ? "" : "blockUnactivated"} block`}>
+                <div className={"blockAction"}>
+                    <span>ПАРКОВКА</span>
+                    <span>СТРАХОВКА</span>
+                    <span>БЕНЗИН</span>
+                    <span>ОБСЛУЖИВАНИЕ</span>
                 </div>
-                :
-                <div className={"changeLanguageButton"}>
-                    Eng
+                <div className={"socialNetworks"}>
+                    <a href={"/"}>
+                        <img src={telegram}/>
+                    </a>
+                    <a href={"/"}>
+                        <img src={facebook}/>
+                    </a>
+                    <a href={"/"}>
+                        <img src={instagram}/>
+                    </a>
                 </div>
-            }
+            </div>
+            <div className={`${active ? "changeLanguageButtonUnactivated" : ""} changeLanguageButton`}>
+                Eng
+            </div>
         </div>
     )
 };

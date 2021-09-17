@@ -4,8 +4,8 @@
   .aboutProject{
     display: flex;
     flex-direction: column;
-    width: 48vw;
-    margin-left: 4.4vw;
+    min-width: 39.1vw;
+    margin-left: 8.8vw;
     margin-right: 4.4vw;
     .upperPanel{
       display: flex;
@@ -61,9 +61,9 @@
         border-radius: 8px;
         color: white;
         cursor: pointer;
-        transition: all 1s ease 1s;
+        transition: all 0.7s ease;
         &:hover{
-          background: linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+          background-position: 17.36vw;
         }
       }
     }

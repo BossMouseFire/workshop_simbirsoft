@@ -1,6 +1,7 @@
 import React from "react"
 import Menu from "./Menu/menu";
 import "./mainPage.scss"
+import Slider from "./Slider/slider";
 
 const MainPage:React.FC = () => {
     return (
@@ -40,6 +41,7 @@ const MainPage:React.FC = () => {
                     </span>
                 </div>
             </div>
+            <Slider/>
         </div>
     )
 }

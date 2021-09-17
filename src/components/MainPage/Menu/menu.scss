@@ -1,58 +1,78 @@
 .menuClosed{
   display: flex;
   flex-direction: column;
+  position: absolute;
   height: 100vh;
   width: 4.4vw;
   justify-content: space-between;
   background-color: #151B1F;
   transition: all 0.7s ease-in-out;
   .burButton {
-    margin-left: 1.4vw;
+    margin-left: 1.3vw;
   }
-  .changeLanguageButton{
-    margin-bottom: 2vw;
-    margin-left: 1.4vw;
-    font-weight: bold;
-    color: #0EC261;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  .blockUnactivated {
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+    pointer-events:none;
   }
 }
 
 .menuActivated{
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  position: absolute;
+  width: 57vw;
   height: 100vh;
   background-color: #111518;
   transition: all 0.7s ease-in-out;
   .burButton {
-    margin-left: 1.4vw;
+    margin-left: 1.3vw;
   }
-  .block{
-    margin: auto auto auto 8.89vw;
-    width: 36.6vw;
-    .blockAction{
-      display: flex;
-      flex-direction: column;
-      color: white;
-      font-size: 2.23vw;
-      span{
-        cursor: pointer;
-        transition: all 0.3s ease;
-        &:hover{
-          color: #0EC261;
-        }
+  .changeLanguageButtonUnactivated{
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+    pointer-events:none;
+  }
+
+}
+
+.changeLanguageButton{
+  margin-bottom: 2vw;
+  margin-left: 1.3vw;
+  font-weight: bold;
+  color: #0EC261;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transition: opacity 0.7s ease;
+}
+
+
+.block{
+  margin: auto auto auto 8.89vw;
+  width: 36.6vw;
+  opacity: 1;
+  transition: opacity 0.7s ease;
+  .blockAction{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 2.23vw;
+    span{
+      cursor: pointer;
+      transition: color 0.5s ease;
+      &:hover{
+        color: #0EC261;
       }
     }
-    .socialNetworks{
-      display: flex;
-      flex-direction: row;
-      margin-top: 2vw;
-      a{
-        &:nth-child(1),
-        &:nth-child(2){
-          margin-right: 1.2vw;
-        }
+  }
+  .socialNetworks{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vw;
+    a{
+      &:nth-child(1),
+      &:nth-child(2){
+        margin-right: 1.2vw;
       }
     }
   }
