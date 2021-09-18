@@ -4,49 +4,104 @@
   .aboutProject{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     min-width: 39.1vw;
+    height: 100vh;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
+
+    @media screen and (max-width: 1024px){
+      min-width: 49.1vw;
+      margin-left: 6.7vw;
+      margin-right: 2.3vw;
+    }
+
+    @media screen and (max-width: 768px){
+      width: 88.84vw;
+      margin-left: 15.33vw;
+      margin-right: 4.17vw;
+    }
+
     .upperPanel{
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       margin-top: 2.1vw;
+      @media screen and (max-width: 1024px){
+        margin-top: 3.5vw;
+      }
+      @media screen and (max-width: 768px){
+        margin-top: 5.2vw;
+      }
+      @media screen and (max-width: 320px){
+        flex-direction: column;
+        align-items: flex-end;
+      }
       span{
         &:nth-child(1){
           color: #0EC261;
           font-size: 2.08vw;
           font-weight: bold;
+
+          @media screen and (max-width: 1024px){
+            font-size: 2.93vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 3.9vw;
+          }
         }
         &:nth-child(2){
           font-size: 1vw;
           line-height: 16px;
           color: #999999;
+          @media screen and (max-width: 1024px){
+            font-size: 1.36vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 1.83vw;
+          }
         }
       }
     }
     .mainPart{
       display: flex;
       flex-direction: column;
-      margin-top: 7.8vw;
       span{
         &:nth-child(1){
           font-weight: bold;
           font-size: 4.86vw;
           line-height: 66px;
+          @media screen and (max-width: 1024px){
+            font-size: 6.84vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 9.11vw;
+          }
         }
         &:nth-child(2){
           font-weight: bold;
           font-size: 4.86vw;
           line-height: 66px;
           color: #0EC261;
+          @media screen and (max-width: 1024px){
+            font-size: 6.84vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 9.11vw;
+          }
         }
         &:nth-child(3){
           font-size: 1.8vw;
           line-height: 30px;
           color: #999999;
           margin-top: 2vw;
+          @media screen and (max-width: 1024px){
+            font-size: 2.54vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 3.39vw;
+          }
         }
       }
       div{
@@ -65,23 +120,49 @@
         &:hover{
           background-position: 17.36vw;
         }
+        @media screen and (max-width: 1024px){
+          width:  24.4vw;
+          font-size: 1.76vw;
+        }
+        @media screen and (max-width: 768px){
+          width: 32.56vw;
+          font-size: 2.34vw;
+        }
       }
     }
     .bottomPanel{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 10vw;
+      margin-bottom: 1.6vw;
+      @media screen and (max-width: 1024px){
+        margin-bottom: 3.5vw;
+      }
+      @media screen and (max-width: 768px){
+        margin-bottom: 5.2vw;
+      }
       span{
         &:nth-child(1){
           font-size: 0.9vw;
           color: #999999;
+          @media screen and (max-width: 1024px){
+            font-size: 1.27vw;
+          }
+          @media screen and (max-width: 768px){
+            font-size: 1.69vw;
+          }
         }
         &:nth-child(2){
           a{
             font-size: 0.9vw;
             color: #121212;
             text-decoration: none;
+            @media screen and (max-width: 1024px){
+              font-size: 1.27vw;
+            }
+            @media screen and (max-width: 768px){
+              font-size: 1.69vw;
+            }
           }
         }
       }

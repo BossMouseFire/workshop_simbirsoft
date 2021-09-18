@@ -1,14 +1,20 @@
 .menuClosed{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: absolute;
+  z-index: 1;
   height: 100vh;
   width: 4.4vw;
-  justify-content: space-between;
-  background-color: #151B1F;
+  background: linear-gradient(90deg, #111518 100%, rgba(21, 27, 31, 0.81));
   transition: all 0.7s ease-in-out;
-  .burButton {
-    margin-left: 1.3vw;
+
+  @media screen and (max-width: 768px){
+    width: 11.16vw;
+    background: #111518;
+  }
+  @media screen and (max-width: 320px){
+    display: block;
   }
   .blockUnactivated {
     opacity: 0;
@@ -21,12 +27,13 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 57vw;
+  width: 100vw;
   height: 100vh;
-  background-color: #111518;
+  background: linear-gradient(90deg, #111518 50%, rgba(21, 27, 31, 0.81));
   transition: all 0.7s ease-in-out;
-  .burButton {
-    margin-left: 1.3vw;
+  z-index: 2;
+  @media screen and (max-width: 768px){
+    background: #111518;
   }
   .changeLanguageButtonUnactivated{
     opacity: 0;
@@ -40,10 +47,22 @@
   margin-bottom: 2vw;
   margin-left: 1.3vw;
   font-weight: bold;
+  font-size: 0.9vw;
   color: #0EC261;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 1;
   transition: opacity 0.7s ease;
+
+  @media screen and (max-width: 1024px){
+    margin-left: 1.1vw;
+    font-size: 1.2vw;
+  }
+
+  @media screen and (max-width: 768px){
+    margin-left: 3.5vw;
+    font-size: 2vw;
+    margin-bottom: 5.5vw;
+  }
 }
 
 
@@ -57,6 +76,12 @@
     flex-direction: column;
     color: white;
     font-size: 2.23vw;
+    @media screen and (max-width: 1024px){
+      font-size: 3.1vw;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 3.65vw;
+    }
     span{
       cursor: pointer;
       transition: color 0.5s ease;
@@ -79,11 +104,24 @@
 }
 
 .burButton{
-  width: 24px;
-  height: 20px;
+  width: 1.67vw;
+  height: 1.39vw;
   position: relative;
   cursor: pointer;
   margin-top: 2.85vw;
+  margin-left: 1.3vw;
+  @media screen and (max-width: 1024px){
+    width: 2.2vw;
+    height: 1.83vw;
+    margin-top: 3.7vw;
+    margin-left: 1.1vw;
+  }
+  @media screen and (max-width: 768px){
+    width: 4vw;
+    height: 3.33vw;
+    margin-top: 5vw;
+    margin-left: 3.58vw;
+  }
   span,
   &:before,
   &:after{
