@@ -42,13 +42,14 @@
       align-items: center;
       justify-content: center;
       min-width: 47.7vw;
-      background-size: 100%;
-      background: no-repeat right;
-      &:nth-child(4){
-        background: no-repeat left;
-      }
+      background-size:100%;
       @media screen and (max-width: 1024px){
         min-width: 41.9vw;
+        background-size:100% 100%;
+        background: no-repeat right;
+        &:nth-child(4){
+          background: no-repeat left;
+        }
       }
       min-height: 100vh;
       .content{
