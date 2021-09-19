@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import "./menu.scss"
-import facebook from "./Facebook_white.svg"
-import instagram from "./Instagram_white.svg"
-import telegram from "./Telegram_white.svg"
+import facebook from "./images/Facebook_white.svg"
+import instagram from "./images/Instagram_white.svg"
+import telegram from "./images/Telegram_white.svg"
 const Menu:React.FC = () => {
     const [active, setActive] = useState<boolean>(false)
     return(

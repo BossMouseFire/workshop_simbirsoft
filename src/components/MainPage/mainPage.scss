@@ -22,6 +22,13 @@
       margin-right: 4.17vw;
     }
 
+    @media screen and (max-width: 320px){
+      width: 100vw;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: normal;
+    }
+
     .upperPanel{
       display: flex;
       flex-direction: row;
@@ -37,6 +44,8 @@
       @media screen and (max-width: 320px){
         flex-direction: column;
         align-items: flex-end;
+        margin-right: 5vw;
+        margin-bottom: 16vw;
       }
       span{
         &:nth-child(1){
@@ -50,6 +59,9 @@
           @media screen and (max-width: 768px){
             font-size: 3.9vw;
           }
+          @media screen and (max-width: 320px){
+            font-size: 9.37vw;
+          }
         }
         &:nth-child(2){
           font-size: 1vw;
@@ -61,12 +73,18 @@
           @media screen and (max-width: 768px){
             font-size: 1.83vw;
           }
+          @media screen and (max-width: 320px){
+            font-size: 4.38vw;
+          }
         }
       }
     }
     .mainPart{
       display: flex;
       flex-direction: column;
+      @media screen and (max-width: 320px){
+        flex: 1;
+      }
       span{
         &:nth-child(1){
           font-weight: bold;
@@ -77,6 +95,11 @@
           }
           @media screen and (max-width: 768px){
             font-size: 9.11vw;
+          }
+          @media screen and (max-width: 320px){
+            font-size: 10vw;
+            margin-left: 5vw;
+            line-height: 32px;
           }
         }
         &:nth-child(2){
@@ -90,6 +113,11 @@
           @media screen and (max-width: 768px){
             font-size: 9.11vw;
           }
+          @media screen and (max-width: 320px){
+            font-size: 10vw;
+            margin-left: 5vw;
+            line-height: 50px;
+          }
         }
         &:nth-child(3){
           font-size: 1.8vw;
@@ -101,6 +129,11 @@
           }
           @media screen and (max-width: 768px){
             font-size: 3.39vw;
+          }
+          @media screen and (max-width: 320px){
+            font-size: 5.6vw;
+            margin-left: 5vw;
+            line-height: 21px;
           }
         }
       }
@@ -128,6 +161,13 @@
           width: 32.56vw;
           font-size: 2.34vw;
         }
+        @media screen and (max-width: 320px){
+          width: 100vw;
+          border-radius: 0;
+          font-size: 5.63vw;
+          padding: 3vw;
+          margin-top: 10vw;
+        }
       }
     }
     .bottomPanel{
@@ -136,10 +176,17 @@
       justify-content: space-between;
       margin-bottom: 1.6vw;
       @media screen and (max-width: 1024px){
-        margin-bottom: 3.5vw;
+        margin-bottom: 3.1vw;
       }
       @media screen and (max-width: 768px){
         margin-bottom: 5.2vw;
+      }
+      @media screen and (max-width: 320px){
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        background: #151B1F;
+        padding: 4vw;
+        margin-bottom: 0;
       }
       span{
         &:nth-child(1){
@@ -150,6 +197,10 @@
           }
           @media screen and (max-width: 768px){
             font-size: 1.69vw;
+          }
+          @media screen and (max-width: 320px){
+            color: #EEEEEE;
+            font-size: 4.06vw;
           }
         }
         &:nth-child(2){
@@ -162,6 +213,10 @@
             }
             @media screen and (max-width: 768px){
               font-size: 1.69vw;
+            }
+            @media screen and (max-width: 320px){
+              color: #0EC261;
+              font-size: 4.06vw;
             }
           }
         }
