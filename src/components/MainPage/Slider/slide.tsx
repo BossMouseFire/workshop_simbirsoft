@@ -16,7 +16,9 @@ const Slide:React.FC<ISlideInfo> = ({information}) => {
                     {information.mainText}
                 </div>
                 <div className={"aboutSlide"}>
-                    Подробнее
+                    <p>
+                        Подробнее
+                    </p>
                 </div>
             </div>
         </div>

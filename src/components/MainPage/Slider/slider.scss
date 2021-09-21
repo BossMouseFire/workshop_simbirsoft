@@ -8,21 +8,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     cursor: pointer;
     width: 4.44vw;
     height: 100vh;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) 100vh;
     mix-blend-mode: normal;
-    transition: background 1s ease-out;
+
+    &:after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transition: opacity 0.7s ease;
+      color: white;
+      background: #0EC261;
+    }
+
+    &:hover:after {
+      opacity: 0.2;
+    }
+
     &:nth-child(2){
       img{
         transform: rotate(180deg);
       }
-    }
-    &:hover{
-      background: #0EC261;
-      opacity: 0.2;
-      transition: background 1s ease-in;
     }
   }
   .arrowPrev{
@@ -42,7 +55,8 @@
       align-items: center;
       justify-content: center;
       min-width: 47.7vw;
-      background-size:100%;
+      background-size:100% 100%;
+      min-height: 100vh;
       @media screen and (max-width: 1024px){
         min-width: 41.9vw;
         background-size:100% 100%;
@@ -51,7 +65,6 @@
           background: no-repeat left;
         }
       }
-      min-height: 100vh;
       .content{
         color: white;
         width: 35vw;
@@ -61,23 +74,27 @@
         .headSlide{
           font-size: 2.78vw;
           font-weight: 500;
-          line-height: 37px;
+          line-height: 2.57vw;
           @media screen and (max-width: 1024px){
             font-size: 3.125vw;
+            line-height: 3.6vw;
           }
         }
         .mainTextSlide{
           color: #EEEEEE;
           font-weight: 300;
           font-size: 1.67vw;
-          line-height: 24px;
+          line-height: 1.67vw;
           margin-top: 1vw;
           @media screen and (max-width: 1024px){
             font-size: 2.15vw;
+            line-height: 2.15vw;
           }
         }
         .aboutSlide{
+          position: relative;
           background: linear-gradient(90deg, #13493F 0%, #0C7B1B 100%);
+          background-size: 100% 300%;
           cursor: pointer;
           border-radius: 4px;
           width: 11.39vw;
@@ -85,8 +102,27 @@
           padding: 0.8vw;
           margin-top: 2vw;
           transition: background 0.7s ease;
-          &:hover{
-            background-position: 11.39vw;
+
+          p{
+            position: relative;
+            z-index: 2;
+          }
+          &:after {
+            content: '';
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            transition: opacity 0.7s ease;
+            border-radius: 4px;
+            color: white;
+            background: linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+          }
+
+          &:hover:after {
+            opacity: 1;
           }
           @media screen and (max-width: 1024px){
             width: 16vw;

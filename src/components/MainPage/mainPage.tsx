@@ -27,7 +27,9 @@ const MainPage:React.FC = () => {
                         Поминутная аренда авто твоего города
                     </span>
                     <div>
-                        Забронировать
+                        <p>
+                            Забронировать
+                        </p>
                     </div>
                 </div>
                 <div className={"bottomPanel"}>
