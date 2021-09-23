@@ -3,4 +3,5 @@ export interface ISlide {
     mainText: string,
     url: string,
     imageUrl:  string,
+    backgroundButton: string
 }

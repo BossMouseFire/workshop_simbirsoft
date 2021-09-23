@@ -9,6 +9,9 @@
   background: linear-gradient(90deg, #111518 100%, rgba(21, 27, 31, 0.81));
   transition: all 0.7s ease-in-out;
 
+  @media screen and (max-width: 1024px){
+    width: 6.3vw;
+  }
   @media screen and (max-width: 768px){
     width: 11.16vw;
     background: #111518;
@@ -51,7 +54,7 @@
 }
 
 .changeLanguageButton{
-  margin-bottom: 2vw;
+  margin-bottom: 2.22vw;
   margin-left: 1.3vw;
   font-weight: bold;
   font-size: 0.9vw;
@@ -61,14 +64,14 @@
   transition: opacity 0.7s ease;
 
   @media screen and (max-width: 1024px){
-    margin-left: 1.1vw;
-    font-size: 1.2vw;
-    margin-bottom: 3.8vw;
+    margin-left: 2vw;
+    font-size: 1.27vw;
+    margin-bottom: 3.6vw;
   }
   @media screen and (max-width: 768px){
     margin-left: 3.5vw;
-    font-size: 2vw;
-    margin-bottom: 5.5vw;
+    font-size: 1.69vw;
+    margin-bottom: 4.8vw;
   }
   @media screen and (max-width: 480px){
     margin-left: 3vw;
@@ -77,6 +80,7 @@
   }
   @media screen and (max-width: 320px){
     font-size: 4vw;
+    margin-left: 8.75vw;
     opacity: 0;
   }
 }
@@ -137,13 +141,13 @@
   height: 1.39vw;
   position: relative;
   cursor: pointer;
-  margin-top: 2.85vw;
+  margin-top: 2.77vw;
   margin-left: 1.3vw;
   @media screen and (max-width: 1024px){
-    width: 2.2vw;
+    width: 2.34vw;
     height: 1.83vw;
-    margin-top: 3.7vw;
-    margin-left: 1.1vw;
+    margin-top: 3.6vw;
+    margin-left: 2vw;
   }
   @media screen and (max-width: 768px){
     width: 4vw;
@@ -154,13 +158,13 @@
   @media screen and (max-width: 480px){
     width: 4.5vw;
     height: 3.75vw;
-    margin-top: 6.5vw;
+    margin-top: 5.5vw;
     margin-left: 3.4vw;
   }
   @media screen and (max-width: 320px){
     width: 5.9vw;
     height: 4.9vw;
-    margin-top: 10vw;
+    margin-top: 7.5vw;
     margin-left: 6.57vw;
   }
   span,
@@ -182,7 +186,7 @@
   }
   &:after{
     content: "";
-    bottom: 0;
+    bottom: 2px;
     transition: all 0.5s ease-in-out;
   }
   span{

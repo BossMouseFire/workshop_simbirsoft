@@ -1,23 +1,31 @@
 import React, {useState} from "react"
-import "./menu.scss"
+import styles from "./menu.module.scss"
+import cn from "classnames"
+import cnBind from "classnames/bind"
 import facebook from "./images/Facebook_white.svg"
 import instagram from "./images/Instagram_white.svg"
 import telegram from "./images/Telegram_white.svg"
+
+const cx = cnBind.bind(styles)
 const Menu:React.FC = () => {
     const [active, setActive] = useState<boolean>(false)
+    const className = cx({menuActivated: active}, {menuClosed: !active})
+    const burButtonClasses = cn(styles.burButton, cx({activeBurButton: active}))
+    const blockClasses = cn(styles.block, cx({blockUnactivated: !active}))
+    const languageButtonClasses = cn(styles.changeLanguageButton, cx({changeLanguageButtonUnactivated: active}))
     return(
-        <div className={active ? "menuActivated" : "menuClosed"}>
-            <div className={`${active ? "activeBurButton" : ""} burButton`} onClick={() => setActive(state => !state)}>
+        <div className={className}>
+            <div className={burButtonClasses} onClick={() => setActive(state => !state)}>
                 <span/>
             </div>
-            <div className={`${active ? "" : "blockUnactivated"} block`}>
-                <div className={"blockAction"}>
+            <div className={blockClasses}>
+                <div className={styles.blockAction}>
                     <span>ПАРКОВКА</span>
                     <span>СТРАХОВКА</span>
                     <span>БЕНЗИН</span>
                     <span>ОБСЛУЖИВАНИЕ</span>
                 </div>
-                <div className={"socialNetworks"}>
+                <div className={styles.socialNetworks}>
                     <a href={"/"}>
                         <img src={telegram}/>
                     </a>
@@ -29,7 +37,7 @@ const Menu:React.FC = () => {
                     </a>
                 </div>
             </div>
-            <div className={`${active ? "changeLanguageButtonUnactivated" : ""} changeLanguageButton`}>
+            <div className={languageButtonClasses}>
                 Eng
             </div>
         </div>

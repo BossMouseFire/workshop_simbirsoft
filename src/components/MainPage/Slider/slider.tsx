@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import arrow from "./images/arrow.svg"
-import "./slider.scss"
 import {SliderData} from "./slidersData";
 import Slide from "./slide";
+import styles from "./slider.module.scss"
+import cn from "classnames"
+import cnBind from "classnames/bind"
+
+const cx = cnBind.bind(styles)
 const Slider:React.FC = () => {
     const [position, setPosition] = useState<number>(0)
-    const [arrayPositions, setArrayPositions] = useState<number[] | []>([])
-
-    useEffect(() => {
-        let array = []
-        for(let i = 0; i < SliderData.length; i++){
-            array.push(i)
-        }
-        setArrayPositions(array)
-    }, [])
 
     const goToNextSlide = () => {
         const newPosition = position === SliderData.length - 1 ? 0 : position + 1;
@@ -25,15 +20,15 @@ const Slider:React.FC = () => {
     };
 
     return(
-        <div className={"sliderWrapper"}>
-            <div onClick={goToPrevSlide} className={"arrowPrev arrow"}>
+        <div className={styles.wrapper}>
+            <div onClick={goToPrevSlide} className={cn(styles.arrowPrev, styles.arrow)}>
                 <img src={arrow}/>
             </div>
-            <div onClick={goToNextSlide} className={"arrowNext arrow"}>
+            <div onClick={goToNextSlide} className={cn(styles.arrowNext, styles.arrow)}>
                 <img src={arrow}/>
             </div>
             <div
-                className={"sliderInner"}
+                className={styles.inner}
                 style={{
                     transition: "transform ease 700ms",
                     transform: `translateX(-${position * 100}%)`,
@@ -43,10 +38,9 @@ const Slider:React.FC = () => {
                     <Slide information={sliderInfo}/>
                 )}
             </div>
-            <div className={"blockNumberOfSlides"}>
-                {arrayPositions.map(index =>
-                    <div className={`${index === position ? "activeSlideNumber" : ""}`}>
-
+            <div className={styles.blockNumbers}>
+                {SliderData.map((slide, index) =>
+                    <div className={cx({activeSlide: index === position})}>
                     </div>
                 )}
             </div>

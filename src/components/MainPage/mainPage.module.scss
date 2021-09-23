@@ -6,13 +6,12 @@
     flex-direction: column;
     justify-content: space-between;
     min-width: 39.1vw;
-    height: 100vh;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
-
+    height: 100vh;
     @media screen and (max-width: 1024px){
       min-width: 49.1vw;
-      margin-left: 6.7vw;
+      margin-left: 8.6vw;
       margin-right: 2.3vw;
     }
 
@@ -29,17 +28,17 @@
       justify-content: normal;
     }
 
-    .upperPanel{
+    .upper{
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       margin-top: 2.1vw;
       @media screen and (max-width: 1024px){
-        margin-top: 3.5vw;
+        margin-top: 3.125vw;
       }
       @media screen and (max-width: 768px){
-        margin-top: 5.2vw;
+        margin-top: 4.17vw;
       }
       @media screen and (max-width: 320px){
         flex-direction: column;
@@ -216,16 +215,19 @@
         }
       }
     }
-    .bottomPanel{
+    .bottom{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-bottom: 1.6vw;
+      margin-bottom: 2.22vw;
       @media screen and (max-width: 1024px){
-        margin-bottom: 3.1vw;
+        margin-bottom: 3.5vw;
       }
       @media screen and (max-width: 768px){
         margin-bottom: 5.2vw;
+      }
+      @media screen and (max-width: 480px){
+        margin-bottom: 6.6vw;
       }
       @media screen and (max-width: 320px){
         flex-direction: column-reverse;
@@ -235,40 +237,32 @@
         margin-bottom: 0;
       }
       span{
+        font-size: 0.9vw;
+        @media screen and (max-width: 1024px){
+          font-size: 1.27vw;
+        }
+        @media screen and (max-width: 768px){
+          font-size: 1.69vw;
+        }
+        @media screen and (max-width: 480px){
+          font-size: 2.5vw;
+        }
+        @media screen and (max-width: 320px){
+          color: #EEEEEE;
+          font-size: 4.06vw;
+        }
         &:nth-child(1){
-          font-size: 0.9vw;
           color: #999999;
-          @media screen and (max-width: 1024px){
-            font-size: 1.27vw;
-          }
-          @media screen and (max-width: 768px){
-            font-size: 1.69vw;
-          }
-          @media screen and (max-width: 480px){
-            font-size: 2.5vw;
-          }
           @media screen and (max-width: 320px){
             color: #EEEEEE;
-            font-size: 4.06vw;
           }
         }
         &:nth-child(2){
           a{
-            font-size: 0.9vw;
             color: #121212;
             text-decoration: none;
-            @media screen and (max-width: 1024px){
-              font-size: 1.27vw;
-            }
-            @media screen and (max-width: 768px){
-              font-size: 1.69vw;
-            }
-            @media screen and (max-width: 480px){
-              font-size: 2.5vw;
-            }
             @media screen and (max-width: 320px){
               color: #0EC261;
-              font-size: 4.06vw;
             }
           }
         }

@@ -1,14 +1,14 @@
 import React from "react"
 import Menu from "./Menu/menu";
-import "./mainPage.scss"
+import styles from "./mainPage.module.scss"
 import Slider from "./Slider/slider";
 
 const MainPage:React.FC = () => {
     return (
-        <div className={"mainPage"}>
+        <div className={styles.mainPage}>
             <Menu/>
-            <div className={"aboutProject"}>
-                <div className={"upperPanel"}>
+            <div className={styles.aboutProject}>
+                <div className={styles.upper}>
                     <span>
                         Need for drive
                     </span>
@@ -16,7 +16,7 @@ const MainPage:React.FC = () => {
                         Ульяновск
                     </span>
                 </div>
-                <div className={"mainPart"}>
+                <div className={styles.mainPart}>
                     <span>
                         Каршеринг
                     </span>
@@ -32,7 +32,7 @@ const MainPage:React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className={"bottomPanel"}>
+                <div className={styles.bottom}>
                     <span>
                         © 2016-2019 «Need for drive»
                     </span>
