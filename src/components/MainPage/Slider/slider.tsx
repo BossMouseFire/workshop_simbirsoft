@@ -40,8 +40,7 @@ const Slider:React.FC = () => {
             </div>
             <div className={styles.blockNumbers}>
                 {SliderData.map((slide, index) =>
-                    <div className={cx({activeSlide: index === position})}>
-                    </div>
+                    <div className={cx({activeSlide: index === position})}/>
                 )}
             </div>
         </div>
