@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/workshop_simbirsoft/static/css/main.127e3149.chunk.css",
-    "main.js": "/workshop_simbirsoft/static/js/main.41366af2.chunk.js",
-    "main.js.map": "/workshop_simbirsoft/static/js/main.41366af2.chunk.js.map",
-    "runtime-main.js": "/workshop_simbirsoft/static/js/runtime-main.b38bc98e.js",
-    "runtime-main.js.map": "/workshop_simbirsoft/static/js/runtime-main.b38bc98e.js.map",
-    "static/js/2.8f4931a5.chunk.js": "/workshop_simbirsoft/static/js/2.8f4931a5.chunk.js",
-    "static/js/2.8f4931a5.chunk.js.map": "/workshop_simbirsoft/static/js/2.8f4931a5.chunk.js.map",
-    "static/js/3.cc0f6bc2.chunk.js": "/workshop_simbirsoft/static/js/3.cc0f6bc2.chunk.js",
-    "static/js/3.cc0f6bc2.chunk.js.map": "/workshop_simbirsoft/static/js/3.cc0f6bc2.chunk.js.map",
+    "main.css": "/workshop_simbirsoft/static/css/main.056ca6b5.chunk.css",
+    "main.js": "/workshop_simbirsoft/static/js/main.1cdc4599.chunk.js",
+    "main.js.map": "/workshop_simbirsoft/static/js/main.1cdc4599.chunk.js.map",
+    "runtime-main.js": "/workshop_simbirsoft/static/js/runtime-main.feec198d.js",
+    "runtime-main.js.map": "/workshop_simbirsoft/static/js/runtime-main.feec198d.js.map",
+    "static/js/2.e740aef2.chunk.js": "/workshop_simbirsoft/static/js/2.e740aef2.chunk.js",
+    "static/js/2.e740aef2.chunk.js.map": "/workshop_simbirsoft/static/js/2.e740aef2.chunk.js.map",
+    "static/js/3.8de0f214.chunk.js": "/workshop_simbirsoft/static/js/3.8de0f214.chunk.js",
+    "static/js/3.8de0f214.chunk.js.map": "/workshop_simbirsoft/static/js/3.8de0f214.chunk.js.map",
     "index.html": "/workshop_simbirsoft/index.html",
-    "static/css/main.127e3149.chunk.css.map": "/workshop_simbirsoft/static/css/main.127e3149.chunk.css.map",
-    "static/js/2.8f4931a5.chunk.js.LICENSE.txt": "/workshop_simbirsoft/static/js/2.8f4931a5.chunk.js.LICENSE.txt",
+    "static/css/main.056ca6b5.chunk.css.map": "/workshop_simbirsoft/static/css/main.056ca6b5.chunk.css.map",
+    "static/js/2.e740aef2.chunk.js.LICENSE.txt": "/workshop_simbirsoft/static/js/2.e740aef2.chunk.js.LICENSE.txt",
     "static/media/Facebook_white.c1876cc3.svg": "/workshop_simbirsoft/static/media/Facebook_white.c1876cc3.svg",
     "static/media/Instagram_white.98094ec4.svg": "/workshop_simbirsoft/static/media/Instagram_white.98094ec4.svg",
     "static/media/Telegram_white.e8137bbe.svg": "/workshop_simbirsoft/static/media/Telegram_white.e8137bbe.svg",
@@ -22,9 +22,9 @@
     "static/media/image4.62c83e6d.png": "/workshop_simbirsoft/static/media/image4.62c83e6d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b38bc98e.js",
-    "static/js/2.8f4931a5.chunk.js",
-    "static/css/main.127e3149.chunk.css",
-    "static/js/main.41366af2.chunk.js"
+    "static/js/runtime-main.feec198d.js",
+    "static/js/2.e740aef2.chunk.js",
+    "static/css/main.056ca6b5.chunk.css",
+    "static/js/main.1cdc4599.chunk.js"
   ]
 }
