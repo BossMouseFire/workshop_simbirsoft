@@ -66,6 +66,7 @@
           font-size: 1vw;
           line-height: 16px;
           color: #999999;
+          font-weight: normal;
           @media screen and (min-width: 1024px) and (max-width: 1439px){
             font-size: 1.36vw;
           }
@@ -127,6 +128,7 @@
           line-height: 2.09vw;
           color: #999999;
           margin-top: 2vw;
+          font-weight: 300;
           @media screen and (min-width: 1024px) and (max-width: 1439px){
             font-size: 2.54vw;
             line-height: 2.9vw;
@@ -155,6 +157,7 @@
         border-radius: 8px;
         color: white;
         cursor: pointer;
+        font-weight: 500;
         p{
           position: relative;
           z-index: 1;
@@ -213,6 +216,7 @@
       }
       span{
         font-size: 0.9vw;
+        font-weight: normal;
         @media screen and (min-width: 1024px) and (max-width: 1439px){
           font-size: 1.27vw;
         }

@@ -29,6 +29,24 @@ dd {
   margin: 0;
 }
 
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto"), url("./fonts/Roboto-Light.ttf") format("ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto"), url("./fonts/Roboto-Medium.ttf") format("ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto"), url("./fonts/Roboto-Bold.ttf") format("ttf");
+  font-weight: bold;
+}
+
 /* Выставляем основные настройки по-умолчанию для body */
 body {
   min-height: 100vh;
