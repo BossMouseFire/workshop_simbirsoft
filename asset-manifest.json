@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/workshop_simbirsoft/static/css/main.056ca6b5.chunk.css",
+    "main.css": "/workshop_simbirsoft/static/css/main.40ce3768.chunk.css",
     "main.js": "/workshop_simbirsoft/static/js/main.1cdc4599.chunk.js",
     "main.js.map": "/workshop_simbirsoft/static/js/main.1cdc4599.chunk.js.map",
     "runtime-main.js": "/workshop_simbirsoft/static/js/runtime-main.feec198d.js",
@@ -10,10 +10,11 @@
     "static/js/3.8de0f214.chunk.js": "/workshop_simbirsoft/static/js/3.8de0f214.chunk.js",
     "static/js/3.8de0f214.chunk.js.map": "/workshop_simbirsoft/static/js/3.8de0f214.chunk.js.map",
     "index.html": "/workshop_simbirsoft/index.html",
-    "static/css/main.056ca6b5.chunk.css.map": "/workshop_simbirsoft/static/css/main.056ca6b5.chunk.css.map",
+    "static/css/main.40ce3768.chunk.css.map": "/workshop_simbirsoft/static/css/main.40ce3768.chunk.css.map",
     "static/js/2.e740aef2.chunk.js.LICENSE.txt": "/workshop_simbirsoft/static/js/2.e740aef2.chunk.js.LICENSE.txt",
     "static/media/Facebook_white.c1876cc3.svg": "/workshop_simbirsoft/static/media/Facebook_white.c1876cc3.svg",
     "static/media/Instagram_white.98094ec4.svg": "/workshop_simbirsoft/static/media/Instagram_white.98094ec4.svg",
+    "static/media/index.css": "/workshop_simbirsoft/static/media/Roboto-Medium.7429a63c.ttf",
     "static/media/Telegram_white.e8137bbe.svg": "/workshop_simbirsoft/static/media/Telegram_white.e8137bbe.svg",
     "static/media/arrow.dd0226d1.svg": "/workshop_simbirsoft/static/media/arrow.dd0226d1.svg",
     "static/media/image1.af952d54.png": "/workshop_simbirsoft/static/media/image1.af952d54.png",
@@ -24,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.feec198d.js",
     "static/js/2.e740aef2.chunk.js",
-    "static/css/main.056ca6b5.chunk.css",
+    "static/css/main.40ce3768.chunk.css",
     "static/js/main.1cdc4599.chunk.js"
   ]
 }
