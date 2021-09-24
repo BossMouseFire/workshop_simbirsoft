@@ -1,0 +1,152 @@
+.wrapper{
+  overflow: hidden;
+  @media screen and (max-width: 1023px){
+    display: none;
+  }
+  .arrow{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    width: 4.44vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) 100vh;
+    mix-blend-mode: normal;
+
+    &:after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transition: opacity 0.7s ease;
+      color: white;
+      background: #0EC261;
+    }
+
+    &:hover:after {
+      opacity: 0.2;
+    }
+
+    &:nth-child(2){
+      img{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .arrowPrev{
+    position: absolute;
+    z-index: 1;
+  }
+  .arrowNext{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+  .inner{
+    display: flex;
+    .slide{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 47.7vw;
+      background-size: 100% auto;
+      min-height: 100vh;
+      @media screen and (max-width: 1300px){
+        background-size: 100% 100%;
+      }
+      @media screen and (min-height: 768px){
+        background-size: 100% 100% !important;
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1439px){
+        min-width: 40vw;
+        background-size:100% 100%;
+        background: no-repeat right;
+        &:nth-child(4){
+          background: no-repeat left;
+        }
+      }
+      .content{
+        color: white;
+        width: 35vw;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          width: 27.5vw;
+        }
+        .head{
+          font-size: 2.78vw;
+          font-weight: 500;
+          line-height: 2.57vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            font-size: 3.125vw;
+            line-height: 3.6vw;
+          }
+        }
+        .mainText{
+          color: #EEEEEE;
+          font-weight: 300;
+          font-size: 1.67vw;
+          line-height: 1.67vw;
+          margin-top: 1vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            font-size: 2.15vw;
+            line-height: 2.15vw;
+          }
+        }
+        .about{
+          position: relative;
+          cursor: pointer;
+          width: 11.39vw;
+          text-align: center;
+          padding: 0.8vw;
+          margin-top: 2vw;
+          transition: all 0.7s ease;
+          font-size: 1.25vw;
+          font-weight: 500;
+          border-radius: 4px;
+          p{
+            position: relative;
+            z-index: 2;
+          }
+
+          &:hover {
+            filter: brightness(80%);
+          }
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            width: 16vw;
+            font-size: 1.76vw;
+          }
+        }
+      }
+    }
+  }
+  .blockNumbers{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    right: 21%;
+    @media screen and (min-width: 1024px) and (max-width: 1439px){
+      right: 19.5%;
+    }
+    div{
+      background: #EEEEEE;
+      border-radius: 50%;
+      width: 0.7vw;
+      height: 0.7vw;
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4){
+        margin-left: 0.5vw;
+      }
+    }
+    .activeSlide{
+      background: #0EC261;
+    }
+  }
+}
