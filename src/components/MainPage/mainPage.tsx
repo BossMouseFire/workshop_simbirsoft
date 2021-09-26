@@ -1,5 +1,5 @@
 import React from "react"
-import Menu from "./Menu/menu";
+import Menu from "../Menu/menu";
 import styles from "./mainPage.module.scss"
 import Slider from "./Slider/slider";
 
