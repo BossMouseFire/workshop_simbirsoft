@@ -1,11 +1,11 @@
 interface ILocation{
     city: string;
     coordinates: number[];
-    points: Point[]
+    points: IPoint[]
 }
 
-interface Point{
-    name: string;
+export interface IPoint{
+    address: string;
     coordinates: number[];
 }
 
@@ -15,15 +15,15 @@ export const LocationData = <ILocation[]>[
         coordinates: [54.300854135750114,48.48230500000002],
         points: [
             {
-                name: "Московское шоссе, 61А",
+                address: "Московское шоссе, 61А",
                 coordinates: [54.30747168731182,48.336749060909014]
             },
             {
-                name: "Московское шоссе, 102Б/1",
+                address: "Московское шоссе, 102Б/1",
                 coordinates: [54.30594899073337,48.355115941712796]
             },
             {
-                name: "Октябрьская улица, 26Б",
+                address: "Октябрьская улица, 26Б",
                 coordinates: [54.29804091002262,48.34099430719289]
             }
         ]
@@ -33,11 +33,11 @@ export const LocationData = <ILocation[]>[
         coordinates: [55.79363688621718,49.123832670848714],
         points: [
             {
-                name: "улица Декабристов, 79",
+                address: "улица Декабристов, 79",
                 coordinates: [55.81747255747704,49.09393071805489]
             },
             {
-                name: "Чистопольская улица, 5",
+                address: "Чистопольская улица, 5",
                 coordinates: [55.81949673099699,49.102481747818366]
             }
         ]

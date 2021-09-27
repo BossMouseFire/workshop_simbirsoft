@@ -38,6 +38,7 @@ const OrderPage:React.FC = () => {
                 </div>
                 <div className={styles.blockAction}>
                     <Location/>
+                    <div className={styles.verticalLine}/>
                     <div>
 
                     </div>

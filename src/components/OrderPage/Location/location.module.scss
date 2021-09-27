@@ -1,5 +1,57 @@
 .location{
+  margin-top: 2.2vw;
   .enterDataBlock{
-
+    div{
+      span{
+        color: #121212;
+        font-weight: 300;
+        font-size: 1vw;
+        line-height: 1.1vw;
+        margin-right: 1vw;
+      }
+      &:nth-child(1){
+        margin-left: 3.47vw;
+        select{
+          background: none;
+          border: none;
+          border-bottom: 1px solid #999999;
+          padding: 0.15vw 0.7vw;
+          appearance: none;
+          outline:none;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 1vw;
+          line-height: 1.1vw;
+          width: 15.56vw;
+        }
+      }
+      &:nth-child(2){
+        margin-top: 1vw;
+        input{
+          background: none;
+          border: none;
+          border-bottom: 1px solid #999999;
+          padding: 0.15vw 0.7vw;
+          outline:none;
+          width: 15.56vw;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 1vw;
+          line-height: 1.1vw;
+        }
+      }
+    }
+  }
+  .mapBlock{
+    margin-top: 2.5vw;
+    span{
+      color: #121212;
+      font-weight: 300;
+      font-size: 1vw;
+      line-height: 16px;
+    }
+    div{
+      margin-top: 1vw;
+    }
   }
 }
