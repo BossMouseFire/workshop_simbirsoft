@@ -1,16 +1,37 @@
 .location{
   margin-top: 2.2vw;
   .enterDataBlock{
+    @media screen and (max-width: 767px){
+      display: none;
+    }
     div{
+      font-size: 1vw;
+      line-height: 1.1vw;
+      @media screen and (min-width: 1024px) and (max-width: 1439px){
+        font-size: 1.36vw;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px){
+        font-size: 1.83vw;
+        line-height: 1.9vw;
+      }
+      @media screen and (max-width: 767px){
+        font-size: 4.38vw;
+      }
       span{
         color: #121212;
         font-weight: 300;
-        font-size: 1vw;
-        line-height: 1.1vw;
         margin-right: 1vw;
       }
       &:nth-child(1){
         margin-left: 3.47vw;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          margin-left: 4.7vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          margin-left: 6.3vw;
+        }
+        @media screen and (max-width: 767px){
+        }
         select{
           background: none;
           border: none;
@@ -20,9 +41,16 @@
           outline:none;
           font-style: normal;
           font-weight: 300;
-          font-size: 1vw;
-          line-height: 1.1vw;
           width: 15.56vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            width: 18vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px){
+            width: 25vw;
+            line-height: 2.5vw;
+          }
+          @media screen and (max-width: 767px){
+          }
         }
       }
       &:nth-child(2){
@@ -36,22 +64,49 @@
           width: 15.56vw;
           font-style: normal;
           font-weight: 300;
-          font-size: 1vw;
-          line-height: 1.1vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            width: 18vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px){
+            width: 25vw;
+          }
+          @media screen and (max-width: 767px){
+          }
         }
       }
     }
   }
   .mapBlock{
+    @media screen and (max-width: 767px){
+      display: none;
+    }
     margin-top: 2.5vw;
     span{
       color: #121212;
       font-weight: 300;
       font-size: 1vw;
-      line-height: 16px;
+      line-height: 1.1vw;
+      @media screen and (min-width: 1024px) and (max-width: 1439px){
+        font-size: 1.36vw;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px){
+        font-size: 1.83vw;
+      }
     }
     div{
       margin-top: 1vw;
+      width: 51vw !important;
+      height: 24vw !important;
+      @media screen and (min-width: 1024px) and (max-width: 1439px){
+        width: 60vw !important;
+        height: 28.24vw !important;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px){
+        margin-top: 2vw;
+        max-height: 45vh;
+        width: 73vw !important;
+        height: 35vw !important;
+      }
     }
   }
 }

@@ -56,7 +56,7 @@ const Location:React.FC = () => {
             <div className={styles.mapBlock}>
                 <span>Выбрать на карте:</span>
                 <YMaps>
-                    <Map state={{ center: centerCoordinates, zoom }} width={"51vw"} height={"24vw"}>
+                    <Map state={{ center: centerCoordinates, zoom }}>
                         {LocationData[indexCity].points.map((point, index) =>
                             <Placemark
                                 key={index}
