@@ -4,21 +4,27 @@ import {IPoint, LocationData} from "./locationData";
 import {YMaps, Map, Placemark} from "react-yandex-maps";
 import {useDispatch} from "react-redux";
 import {changePickUpPoint, changeStateButton} from "../../../store/actionCreators/check";
+import {useTypeSelector} from "../../../hooks/useTypeSelector";
+import {changeCoordinates, changeIndexCity, changePoint, changeZoom} from "../../../store/actionCreators/location";
 
 const Location:React.FC = () => {
-    const [indexCity, setIndexCity] = useState<number>(0)
-    const [centerCoordinates, setCenterCoordinates] = useState<number[]>([])
-    const [zoom, setZoom] = useState<number>(10)
-    const [valueInput, setValueInput] = useState<string>("")
+    const {index, point, coordinates, zoomDefault} = useTypeSelector(state => state.location)
+    const [indexCity, setIndexCity] = useState<number>(index)
+    const [centerCoordinates, setCenterCoordinates] = useState<number[]>(coordinates)
+    const [zoom, setZoom] = useState<number>(zoomDefault)
+    const [valueInput, setValueInput] = useState<string>(point)
     const dispatch = useDispatch();
     useEffect(() => {
         setCenterCoordinates(LocationData[indexCity].coordinates)
         setZoom(10)
+        dispatch(changeZoom(10))
+        dispatch(changeCoordinates(LocationData[indexCity].coordinates))
     }, [indexCity])
 
     const onChangeIndexCity = (e: ChangeEvent<HTMLSelectElement>) => {
         const index = Number(e.target.value)
         setIndexCity(index);
+        dispatch(changeIndexCity(index))
         setValueInput("")
     }
     const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +35,9 @@ const Location:React.FC = () => {
                 setZoom(16)
                 dispatch(changePickUpPoint(e.target.value))
                 dispatch(changeStateButton(true))
+                dispatch(changeZoom(16))
+                dispatch(changeCoordinates(point.coordinates))
+                dispatch(changePoint(e.target.value))
             }
         })
     }
@@ -36,6 +45,10 @@ const Location:React.FC = () => {
         setCenterCoordinates(point.coordinates)
         setValueInput(point.address)
         setZoom(16)
+
+        dispatch(changeZoom(16))
+        dispatch(changeCoordinates(point.coordinates))
+        dispatch(changePoint(point.address))
     }
     return(
         <div className={styles.location}>

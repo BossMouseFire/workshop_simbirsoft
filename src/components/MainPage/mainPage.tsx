@@ -2,8 +2,10 @@ import React from "react"
 import Menu from "../Menu/menu";
 import styles from "./mainPage.module.scss"
 import Slider from "./Slider/slider";
+import {useHistory} from "react-router";
 
 const MainPage:React.FC = () => {
+    const history = useHistory()
     return (
         <div className={styles.mainPage}>
             <Menu/>
@@ -26,7 +28,7 @@ const MainPage:React.FC = () => {
                     <span>
                         Поминутная аренда авто твоего города
                     </span>
-                    <div>
+                    <div onClick={() => history.push('/order')}>
                         <p>
                             Забронировать
                         </p>
