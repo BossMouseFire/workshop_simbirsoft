@@ -2,12 +2,15 @@ import React, {ChangeEvent, useEffect, useState} from 'react'
 import styles from './location.module.scss'
 import {IPoint, LocationData} from "./locationData";
 import {YMaps, Map, Placemark} from "react-yandex-maps";
+import {useDispatch} from "react-redux";
+import {changePickUpPoint, changeStateButton} from "../../../store/actionCreators/check";
 
 const Location:React.FC = () => {
     const [indexCity, setIndexCity] = useState<number>(0)
     const [centerCoordinates, setCenterCoordinates] = useState<number[]>([])
     const [zoom, setZoom] = useState<number>(10)
     const [valueInput, setValueInput] = useState<string>("")
+    const dispatch = useDispatch();
     useEffect(() => {
         setCenterCoordinates(LocationData[indexCity].coordinates)
         setZoom(10)
@@ -24,6 +27,8 @@ const Location:React.FC = () => {
             if(point.address === e.target.value){
                 setCenterCoordinates(point.coordinates)
                 setZoom(16)
+                dispatch(changePickUpPoint(e.target.value))
+                dispatch(changeStateButton(true))
             }
         })
     }
