@@ -27,3 +27,12 @@ export const changeCurrentBlock = (number: number) => {
         })
     }
 }
+
+export const openBlockedBlock = (number: number) => {
+    return (dispatch: Dispatch<CheckAction>) => {
+        dispatch({
+            type: CheckActionTypes.Open_BlockedBlock,
+            payload: number
+        })
+    }
+}

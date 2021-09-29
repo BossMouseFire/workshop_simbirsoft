@@ -9,6 +9,7 @@ export interface CheckState {
     rightHandDrive: boolean;
     currentBlock: number;
     activeButton: boolean,
+    blockedBlock: number
 }
 
 export enum CheckActionTypes {
@@ -21,7 +22,8 @@ export enum CheckActionTypes {
     Change_BabyChair = "Change_BabyChair",
     Change_RightHandDrive = "Change_RightHandDrive",
     Change_CurrentBlock = "Change_CurrentBlock",
-    Change_StateButton = "Change_StateButton"
+    Change_StateButton = "Change_StateButton",
+    Open_BlockedBlock = "Open_BlockedBlock"
 }
 
 interface ChangePickUpPointAction {
@@ -64,7 +66,11 @@ interface ChangeStateButton {
     type: CheckActionTypes.Change_StateButton,
     payload: boolean
 }
+interface OpenBlockedBlock {
+    type: CheckActionTypes.Open_BlockedBlock,
+    payload: number
+}
 
 export type CheckAction = ChangeBabyChairAction | ChangeColorAction | ChangeCurrentBlockAction |
     ChangeFullTankAction | ChangeRightHandDriveAction | ChangePickUpPointAction | ChangeModelAction |
-    ChangeTariffAction | ChangeLeaseAction | ChangeStateButton
+    ChangeTariffAction | ChangeLeaseAction | ChangeStateButton | OpenBlockedBlock

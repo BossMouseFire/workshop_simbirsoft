@@ -4,28 +4,20 @@ import cn from "classnames"
 import cnBind from "classnames/bind"
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
 import {useDispatch} from "react-redux";
-import {changeCurrentBlock} from "../../../store/actionCreators/check";
+import {changeCurrentBlock, openBlockedBlock} from "../../../store/actionCreators/check";
 
 const cx = cnBind.bind(styles)
 
 interface ICheck{
     stateCheck: boolean,
-    refActions: MutableRefObject<HTMLDivElement>;
 }
 
-const Check:React.FC<ICheck> = ({stateCheck, refActions}) => {
-    const {pickUpPoint, activeButton, currentBlock} = useTypeSelector(state => state.check)
+const Check:React.FC<ICheck> = ({stateCheck}) => {
+    const {pickUpPoint, activeButton, currentBlock, blockedBlock} = useTypeSelector(state => state.check)
     const dispatch = useDispatch()
 
     const onChangeCurrentBlock = () => {
-        const actions = refActions.current.querySelectorAll('span');
-        for (let i = 0; i < actions.length; i++) {
-            if(actions[i].classList.contains('orderPage_blockedAction__1c69U')){
-                actions[i].classList.remove('orderPage_blockedAction__1c69U')
-                console.log('test')
-                break
-            }
-        }
+        dispatch(openBlockedBlock(blockedBlock + 1))
         dispatch(changeCurrentBlock(currentBlock + 1))
     }
     return(

@@ -13,8 +13,7 @@ import {changeCurrentBlock} from "../../store/actionCreators/check";
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
     const [stateCheck, setStateCheck] = useState<boolean>(false);
-    const refActions = useRef() as React.MutableRefObject<HTMLDivElement>;
-    const {currentBlock} = useTypeSelector(state => state.check)
+    const {currentBlock, blockedBlock} = useTypeSelector(state => state.check)
     const dispatch = useDispatch()
     const onChangeCurrentBlock = (number: number) => {
         dispatch(changeCurrentBlock(number))
@@ -33,23 +32,23 @@ const OrderPage:React.FC = () => {
                 </div>
                 <div className={styles.blockActions}>
                     <div className={styles.line}/>
-                    <div className={styles.actions} ref={refActions}>
+                    <div className={styles.actions}>
                         <span className={cx({activatedAction: currentBlock == 0})}
                               onClick={() => onChangeCurrentBlock(0)}>
                             Местоположение
                         </span>
                         <div/>
-                        <span className={cn(styles.blockedAction, cx({activatedAction: currentBlock == 1}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 1}, {activatedAction: currentBlock == 1}))}
                               onClick={() => onChangeCurrentBlock(1)}>
                             Модель
                         </span>
                         <div/>
-                        <span className={cn(styles.blockedAction, cx({activatedAction: currentBlock == 2}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 2}, {activatedAction: currentBlock == 2}))}
                               onClick={() => onChangeCurrentBlock(2)}>
                             Дополнительно
                         </span>
                         <div/>
-                        <span className={cn(styles.blockedAction, cx({activatedAction: currentBlock == 3}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 3}, {activatedAction: currentBlock == 3}))}
                               onClick={() => onChangeCurrentBlock(3)}>
                             Итого
                         </span>
@@ -62,7 +61,7 @@ const OrderPage:React.FC = () => {
 
                     }
                     <div className={styles.verticalLine}/>
-                    <Check stateCheck={stateCheck} refActions={refActions}/>
+                    <Check stateCheck={stateCheck}/>
                     <div onClick={() => setStateCheck(state => !state)}>
                         <img src={nextIcon} className={cn(styles.nextIcon, cx({nextIconActive: stateCheck}))}/>
                     </div>
