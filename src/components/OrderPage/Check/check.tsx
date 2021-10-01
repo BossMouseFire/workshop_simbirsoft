@@ -17,6 +17,8 @@ const Check:React.FC<ICheck> = ({stateCheck}) => {
     const dispatch = useDispatch()
 
     const onChangeCurrentBlock = () => {
+        // На данный момент я просто прибавляю единицу для смены закрытого блокова.
+        // Далее при добавлении дальнейших разделов я буду проверять заполняемость полей для каждого блока.
         dispatch(openBlockedBlock(blockedBlock + 1))
         dispatch(changeCurrentBlock(currentBlock + 1))
     }

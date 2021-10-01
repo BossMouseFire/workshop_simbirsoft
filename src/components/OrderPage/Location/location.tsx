@@ -47,6 +47,7 @@ const Location:React.FC = () => {
         setZoom(16)
 
         dispatch(changeZoom(16))
+        dispatch(changeStateButton(true))
         dispatch(changeCoordinates(point.coordinates))
         dispatch(changePoint(point.address))
         dispatch(changePickUpPoint(point.address))
