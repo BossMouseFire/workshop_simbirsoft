@@ -1,6 +1,7 @@
 .orderPage{
   display: flex;
   flex-direction: column;
+  height: 100vh;
   .upper{
     display: flex;
     flex-direction: row;
@@ -9,6 +10,7 @@
     margin-top: 2.1vw;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
+    height: 7%;
     @media screen and (min-width: 1024px) and (max-width: 1439px){
       margin-top: 3.125vw;
     }
@@ -58,6 +60,13 @@
   }
   .blockActions{
     margin-top: 2.2vw;
+    height: 5%;
+    @media screen and (min-width: 1024px) and (max-width: 1439px){
+      height: 7.5%;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+      height: 9%;
+    }
     @media screen and (max-width: 767px){
       margin-top: 0;
     }
@@ -124,13 +133,15 @@
     flex-direction: row;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
+    height: 88%;
     @media screen and (min-width: 768px) and (max-width: 1023px){
       margin-left: 15.33vw;
       margin-right: 4.17vw;
+      height: 85.5%;
     }
+
     .verticalLine{
       border: 1px solid #EEEEEE;
-      height: 79vh;
       margin-left: 13vw;
       @media screen and (min-width: 1024px) and (max-width: 1439px){
         margin-left: 4vw;

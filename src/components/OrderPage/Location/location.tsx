@@ -49,6 +49,7 @@ const Location:React.FC = () => {
         dispatch(changeZoom(16))
         dispatch(changeCoordinates(point.coordinates))
         dispatch(changePoint(point.address))
+        dispatch(changePickUpPoint(point.address))
     }
     return(
         <div className={styles.location}>

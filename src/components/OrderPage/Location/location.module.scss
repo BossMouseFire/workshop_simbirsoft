@@ -101,16 +101,16 @@
     div{
       margin-top: 1vw;
       width: 51vw !important;
-      height: 48vh !important;
+      height: 45vh !important;
       @media screen and (min-width: 1024px) and (max-width: 1439px){
         width: 60vw !important;
-        height: 28.24vw !important;
+        height: 40vh !important;
       }
       @media screen and (min-width: 768px) and (max-width: 1023px){
         margin-top: 2vw;
         max-height: 45vh;
         width: 73vw !important;
-        height: 35vw !important;
+        height: 50vh !important;
       }
     }
   }
