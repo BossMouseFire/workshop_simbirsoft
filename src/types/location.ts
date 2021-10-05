@@ -1,21 +1,21 @@
 
 export interface LocationState {
-    index: number,
+    idCity: string,
     coordinates: number[],
     zoomDefault: number,
     point: string
 }
 
 export enum LocationActionTypes {
-    Change_IndexCity = "Change_IndexCity",
+    Change_IdCity = "Change_IdCity",
     Change_CenterCoordinates = "Change_CenterCoordinates",
     Change_Zoom = "Change_Zoom",
     Change_Point = "Change_Point",
 }
 
-interface ChangeChangeIndexCity {
-    type: LocationActionTypes.Change_IndexCity,
-    payload: number
+interface ChangeIdCity {
+    type: LocationActionTypes.Change_IdCity,
+    payload: string
 }
 interface ChangeCenterCoordinates {
     type: LocationActionTypes.Change_CenterCoordinates,
@@ -30,5 +30,5 @@ interface ChangePoint {
     payload: string
 }
 
-export type LocationAction = ChangeCenterCoordinates | ChangeChangeIndexCity |
+export type LocationAction = ChangeCenterCoordinates | ChangeIdCity |
     ChangePoint | ChangeZoom

@@ -1,4 +1,4 @@
-import React, {MutableRefObject} from 'react'
+import React from 'react'
 import styles from "../orderPage.module.scss";
 import cn from "classnames"
 import cnBind from "classnames/bind"
@@ -13,7 +13,7 @@ interface ICheck{
 }
 
 const Check:React.FC<ICheck> = ({stateCheck}) => {
-    const {pickUpPoint, activeButton, currentBlock, blockedBlock} = useTypeSelector(state => state.check)
+    const {city, pickUpPoint, activeButton, currentBlock, blockedBlock} = useTypeSelector(state => state.check)
     const dispatch = useDispatch()
 
     const onChangeCurrentBlock = () => {
@@ -30,11 +30,11 @@ const Check:React.FC<ICheck> = ({stateCheck}) => {
             <div className={styles.requisites}>
                 <div>
                     <span>Пункт выдачи</span>
-                    <span>{pickUpPoint != "" ? pickUpPoint : 'Не выбран'}</span>
+                    <span>{pickUpPoint != "" ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
                 </div>
             </div>
             <div className={styles.priceBlock}>
-                <span>Цена:</span>
+                <span>Цена: </span>
                 <span>от 10000 до 32000 ₽</span>
             </div>
             <div className={cn(styles.buttonAction, cx({blockButtonAction: !activeButton}))} onClick={() => onChangeCurrentBlock()}>

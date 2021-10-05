@@ -82,9 +82,6 @@
     }
   }
   .mapBlock{
-    @media screen and (max-width: 767px){
-      display: none;
-    }
     margin-top: 2.5vw;
     span{
       color: #121212;
@@ -96,6 +93,9 @@
       }
       @media screen and (min-width: 768px) and (max-width: 1023px){
         font-size: 1.83vw;
+      }
+      @media screen and (max-width: 767px){
+        font-size: 3vw;
       }
     }
     div{
@@ -110,6 +110,12 @@
         margin-top: 2vw;
         max-height: 45vh;
         width: 73vw !important;
+        height: 50vh !important;
+      }
+      @media screen and (max-width: 767px){
+        margin-top: 2vw;
+        max-height: 45vh;
+        width: 83vw !important;
         height: 50vh !important;
       }
     }

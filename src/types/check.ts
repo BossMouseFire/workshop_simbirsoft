@@ -1,4 +1,5 @@
 export interface CheckState {
+    city: string;
     pickUpPoint: string;
     model: string;
     color: string;
@@ -28,7 +29,10 @@ export enum CheckActionTypes {
 
 interface ChangePickUpPointAction {
     type: CheckActionTypes.Change_PickUpPoint,
-    payload: string
+    payload: {
+        city: string,
+        point: string
+    }
 }
 interface ChangeModelAction {
     type: CheckActionTypes.Change_Model,

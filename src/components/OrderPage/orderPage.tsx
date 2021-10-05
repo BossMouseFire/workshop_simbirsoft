@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import Menu from "../Menu/menu";
 import styles from "./orderPage.module.scss"
 import Location from "./Location/location";
@@ -15,8 +15,23 @@ const OrderPage:React.FC = () => {
     const [stateCheck, setStateCheck] = useState<boolean>(false);
     const {currentBlock, blockedBlock} = useTypeSelector(state => state.check)
     const dispatch = useDispatch()
+    const refHelp = useRef() as React.MutableRefObject<HTMLDivElement>;
+    const [stateHelpBlock, setStateHelpBlock] = useState<boolean>(false)
     const onChangeCurrentBlock = (number: number) => {
         dispatch(changeCurrentBlock(number))
+    }
+    useEffect(() => {
+        setTimeout(() => {
+            if(window.innerWidth < 1024 && !stateHelpBlock){
+                refHelp.current.classList.add(styles.activeHelpBlock)
+            }
+        }, 3000)
+    }, [])
+
+    const changeStateCheck = () => {
+        refHelp.current.classList.remove(styles.activeHelpBlock)
+        setStateHelpBlock(true)
+        setStateCheck(state => !state)
     }
     return(
         <>
@@ -62,7 +77,10 @@ const OrderPage:React.FC = () => {
                     }
                     <div className={styles.verticalLine}/>
                     <Check stateCheck={stateCheck}/>
-                    <div onClick={() => setStateCheck(state => !state)}>
+                    <div className={styles.helpBlock} ref={refHelp}>
+                        Нажмите на стрелку, чтобы продолжить
+                    </div>
+                    <div onClick={() => changeStateCheck()}>
                         <img src={nextIcon} className={cn(styles.nextIcon, cx({nextIconActive: stateCheck}))}/>
                     </div>
                 </div>

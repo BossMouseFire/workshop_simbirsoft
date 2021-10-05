@@ -1,6 +1,7 @@
 import {CheckAction, CheckActionTypes, CheckState} from "../../types/check";
 
 const initialState:CheckState = {
+    city: "",
     pickUpPoint: "",
     model: "",
     color: "",
@@ -18,7 +19,7 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
     switch (action.type){
         case CheckActionTypes.Change_PickUpPoint:
             return {
-                pickUpPoint: action.payload, model: state.model, color: state.color,
+                city: action.payload.city, pickUpPoint: action.payload.point, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
                 currentBlock: state.currentBlock, activeButton: state.activeButton,
@@ -26,14 +27,16 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
             }
         case CheckActionTypes.Change_StateButton:
             return {
+                city: state.city,
                 pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
                 currentBlock: state.currentBlock, activeButton: action.payload,
-                blockedBlock: state.blockedBlock,
+                blockedBlock: state.blockedBlock
             }
         case CheckActionTypes.Change_CurrentBlock:
             return {
+                city: state.city,
                 pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
@@ -42,6 +45,7 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
             }
         case CheckActionTypes.Open_BlockedBlock:
             return {
+                city: state.city,
                 pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,

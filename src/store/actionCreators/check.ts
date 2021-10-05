@@ -1,11 +1,13 @@
 import {Dispatch} from "redux";
 import {CheckAction, CheckActionTypes} from "../../types/check";
 
-export const changePickUpPoint = (point: string) => {
+export const changePickUpPoint = (city: string, point: string) => {
     return (dispatch: Dispatch<CheckAction>) => {
         dispatch({
             type: CheckActionTypes.Change_PickUpPoint,
-            payload: point
+            payload: {
+                city, point
+            }
         })
     }
 }

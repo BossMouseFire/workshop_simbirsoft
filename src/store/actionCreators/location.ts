@@ -29,11 +29,11 @@ export const changeCoordinates = (coordinates: number[]) => {
     }
 }
 
-export const changeIndexCity = (index: number) => {
+export const changeIdCity = (id: string) => {
     return (dispatch: Dispatch<LocationAction>) => {
         dispatch({
-            type: LocationActionTypes.Change_IndexCity,
-            payload: index
+            type: LocationActionTypes.Change_IdCity,
+            payload: id
         })
     }
 }
