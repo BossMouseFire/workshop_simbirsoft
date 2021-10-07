@@ -1,0 +1,33 @@
+.model{
+  width: 51vw;
+  @media screen and (min-width: 1024px) and (max-width: 1439px){
+    width: 60vw;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px){
+    width: 73vw;
+  }
+  @media screen and (max-width: 767px){
+    width: 100vw;
+  }
+  .categories{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.2vw;
+    div{
+      display: flex;
+      align-items: center;
+      margin-right: 1.1vw;
+      span{
+        color: #999999;
+        font-weight: 300;
+        font-size: 1vw;
+        line-height: 1.1vw;
+        margin-top: 0.3vw;
+        margin-left: 0.5vw;
+      }
+      input{
+        margin-left: 0;
+      }
+    }
+  }
+}
