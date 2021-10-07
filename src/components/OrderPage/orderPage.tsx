@@ -9,6 +9,7 @@ import Check from "./Check/check";
 import {useTypeSelector} from "../../hooks/useTypeSelector";
 import {useDispatch} from "react-redux";
 import {changeCurrentBlock} from "../../store/actionCreators/check";
+import Model from "./Model/model";
 
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
@@ -72,7 +73,7 @@ const OrderPage:React.FC = () => {
                 </div>
                 <div className={styles.blockAction}>
                     {
-                        currentBlock === 0 ? <Location/> : <div></div>
+                        currentBlock === 0 ? <Model/> : <div></div>
 
                     }
                     <div className={styles.verticalLine}/>
