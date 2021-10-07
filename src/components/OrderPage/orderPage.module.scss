@@ -217,10 +217,11 @@
           span{
             font-size: 1vw;
             font-weight: 300;
-            line-height: 1.1vw;
+            line-height: 1.2vw;
             text-align: right;
             @media screen and (min-width: 1024px) and (max-width: 1439px){
               font-size: 1.36vw;
+              line-height: 1.5vw;
             }
             @media screen and (min-width: 768px) and (max-width: 1023px){
               font-size: 1.83vw;
@@ -237,7 +238,7 @@
                 max-width: 20vw;
               }
               @media screen and (max-width: 767px){
-                max-width: 40vw;
+                max-width: 30vw;
               }
             }
           }
