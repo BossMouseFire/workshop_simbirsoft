@@ -64,9 +64,9 @@
         }
         &:nth-child(2){
           font-size: 1vw;
-          line-height: 16px;
+          line-height: 1.1vw;
           color: #999999;
-          font-weight: normal;
+          font-weight: 300;
           @media screen and (min-width: 1024px) and (max-width: 1439px){
             font-size: 1.36vw;
           }
@@ -216,7 +216,7 @@
       }
       span{
         font-size: 0.9vw;
-        font-weight: normal;
+        font-weight: 300;
         @media screen and (min-width: 1024px) and (max-width: 1439px){
           font-size: 1.27vw;
         }
