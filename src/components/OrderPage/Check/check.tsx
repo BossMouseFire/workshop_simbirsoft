@@ -30,7 +30,7 @@ const Check:React.FC<ICheck> = ({stateCheck}) => {
             <div className={styles.requisites}>
                 <div>
                     <span>Пункт выдачи</span>
-                    <span>{pickUpPoint != "" ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
+                    <span>{pickUpPoint ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
                 </div>
             </div>
             <div className={styles.priceBlock}>

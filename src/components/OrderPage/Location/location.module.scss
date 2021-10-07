@@ -1,6 +1,14 @@
 .location{
   margin-top: 2.2vw;
+  width: 51vw;
+  @media screen and (min-width: 1024px) and (max-width: 1439px){
+    width: 60vw;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px){
+    width: 73vw;
+  }
   @media screen and (max-width: 767px){
+    width: 100vw;
     margin-top: 20vw;
   }
   .enterDataBlock{
@@ -31,7 +39,7 @@
           margin-left: 6.3vw;
         }
         @media screen and (max-width: 767px){
-          margin-left: 14.4vw;
+          margin-left: 15.9vw;
         }
         select{
           background: none;
@@ -51,7 +59,7 @@
             line-height: 2.5vw;
           }
           @media screen and (max-width: 767px){
-            width: 55vw;
+            width: 60vw;
             line-height: 5vw;
           }
         }
@@ -74,7 +82,7 @@
             width: 25vw;
           }
           @media screen and (max-width: 767px){
-            width: 55vw;
+            width: 60vw;
             line-height: 5vw;
           }
         }
@@ -95,7 +103,7 @@
         font-size: 1.83vw;
       }
       @media screen and (max-width: 767px){
-        font-size: 3vw;
+        font-size: 4vw;
       }
     }
     div{
@@ -115,7 +123,7 @@
       @media screen and (max-width: 767px){
         margin-top: 2vw;
         max-height: 45vh;
-        width: 83vw !important;
+        width: 88vw !important;
         height: 50vh !important;
       }
     }

@@ -87,7 +87,7 @@
       @media screen and (max-width: 767px){
         flex-wrap: wrap;
         gap: 3vw;
-        margin: 5vw 15vw 5vw  15vw;
+        margin: 5vw 0 5vw 6.5vw;
       }
       div{
         width: 0;
@@ -99,7 +99,7 @@
         @media screen and (max-width: 767px){
           border-width: 1.26vw 0 1.26vw 1.68vw;
           &:nth-of-type(3){
-            margin-left: 3.3vw;
+            margin-left: 4vw;
           }
         }
       }
@@ -140,6 +140,9 @@
       margin-left: 15.33vw;
       margin-right: 4.17vw;
       height: 85.5%;
+    }
+    @media screen and (max-width: 767px){
+      margin-left: 6.5vw;
     }
     .verticalLine{
       border: 1px solid #EEEEEE;
@@ -254,7 +257,8 @@
           margin-left: 2vw;
         }
         span{
-          font-weight: 500;
+          font-weight: 500 !important;
+          font-style: normal;
           font-size: 1.1vw;
           line-height: 1.1vw;
           color: #121212;
@@ -291,13 +295,13 @@
           font-size: 1.5vw;
         }
         @media screen and (min-width: 768px) and (max-width: 1023px){
-          width: 34.71vw;
+          width: 100%;
           border-radius: 0;
           margin-top: 4.2vw;
           font-size: 1.75vw;
         }
         @media screen and (max-width: 767px){
-          width: 69.45vw;
+          width: 100%;
           border-radius: 0;
           margin-top: 4.2vw;
           font-size: 4vw;

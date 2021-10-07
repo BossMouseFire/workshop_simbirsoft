@@ -1,7 +1,7 @@
 import React from "react"
-import {ISlide} from '../type'
 import styles from "./slider.module.scss"
 import {useHistory} from "react-router";
+import {ISlide} from "../../../types/slide";
 interface ISlideInfo{
     information: ISlide
 }

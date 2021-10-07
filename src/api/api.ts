@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IRequestCoordinates, IRequestCities, IRequestPoints} from "../types/api";
+import {IRequestCoordinates, IRequestCities, IRequestPoints, IRequestCategories, IRequestCars} from "../types/api";
 
 const instanceApiFactory = axios.create({
     baseURL: "https://api-factory.simbirsoft1.com",
@@ -22,16 +22,32 @@ export const getCoordinates = async (address: string) => {
     return <number[]>array.map(item => Number(item))
 }
 
-
 export const getCities = async () => {
     return await instanceApiFactory.get<IRequestCities>("/api/db/city")
 }
 
-export const getPointsForCity = async (id: string) => {
+export const getPointsToCity = async (id: string) => {
     return await instanceApiFactory.get<IRequestPoints>(
         "/api/db/point", {
-        params: {
-            "cityId": id
-        }
-    })
+            params: {
+                "cityId": id
+            }
+        })
+}
+
+export const getCategories = async () => {
+    return await  instanceApiFactory.get<IRequestCategories>("/api/db/category")
+}
+
+export const getCars = async () => {
+    return await instanceApiFactory.get<IRequestCars>("/api/db/car")
+}
+
+export const getCarsToCategory = async (id: string) => {
+    return await instanceApiFactory.get<IRequestCars>(
+        "/api/db/car", {
+            params: {
+                categoryId: id
+            }
+        })
 }

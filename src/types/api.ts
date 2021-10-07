@@ -1,5 +1,7 @@
 import {ICity} from "./cities";
 import {IPoint} from "./points";
+import {ICar} from "./cars";
+import {ICategory} from "./categories";
 
 export interface IRequestCoordinates {
     response: {
@@ -23,4 +25,12 @@ export interface IRequestCities{
 
 export interface IRequestPoints{
     data: IPoint[]
+}
+
+export interface IRequestCars {
+    data: ICar[]
+}
+
+export interface IRequestCategories{
+    data: ICategory[]
 }

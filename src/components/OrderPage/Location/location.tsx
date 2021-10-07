@@ -25,7 +25,7 @@ const Location:React.FC = () => {
 
     useEffect(() => {
         if(cities.length > 0){
-            dispatch(fetchPointsForCity(idCity != "" ? idCity : cities[0].id ))
+            dispatch(fetchPointsForCity(idCity ? idCity : cities[0].id ))
         }
     }, [cities])
 
@@ -35,12 +35,12 @@ const Location:React.FC = () => {
 
     useEffect(() => {
         if(pointsWithCoordinates.length > 0){
-            if (idCityLocal == ""){
+            if (!idCityLocal){
                 dispatch(changeCoordinates(pointsWithCoordinates[0].coordinates))
             }
             else{
                 pointsWithCoordinates.map((point, index) => {
-                    if (point.cityId.id == idCityLocal) {
+                    if (point.cityId.id === idCityLocal) {
                         dispatch(changeCoordinates(pointsWithCoordinates[index].coordinates))
                     }
                 })
@@ -101,15 +101,25 @@ const Location:React.FC = () => {
             <div className={styles.enterDataBlock}>
                 <div>
                     <span>Город</span>
-                    <select onChange={(e) => onChangeIdCity(e)}>
+                    <select onChange={onChangeIdCity}>
                         {cities.map((city) =>
-                            <option key={city.id} value={city.id} selected={idCity == city.id}>{city.name}</option>
+                            <option
+                                key={city.id}
+                                value={city.id}
+                                selected={idCity === city.id}
+                            >
+                                {city.name}
+                            </option>
                         )}
                     </select>
                 </div>
                 <div>
                     <span>Пункт выдачи</span>
-                    <input list="brow" placeholder={"Начните вводить пункт ..."} value={valueInput} onChange={(e) => onChangePoint(e)}/>
+                    <input
+                        list="brow"
+                        placeholder={"Начните вводить пункт ..."}
+                        value={valueInput} onChange={onChangePoint}
+                    />
                     <datalist id="brow">
                         {points.map(point =>
                             <option value={point.address}/>
@@ -131,7 +141,8 @@ const Location:React.FC = () => {
                                 }
                                 properties={
                                     {
-                                        balloonContent: `<strong>Информация о пункте выдачи</strong> <hr/> Адрес: ${point.address}`
+                                        balloonContent:
+                                            `<strong>Информация о пункте выдачи</strong> <hr/> Адрес: ${point.address}`
                                     }
                                 }
                                 modules={

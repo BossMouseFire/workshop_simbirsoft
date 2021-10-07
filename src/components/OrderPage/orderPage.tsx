@@ -48,22 +48,22 @@ const OrderPage:React.FC = () => {
                 <div className={styles.blockActions}>
                     <div className={styles.line}/>
                     <div className={styles.actions}>
-                        <span className={cx({activatedAction: currentBlock == 0})}
+                        <span className={cx({activatedAction: currentBlock === 0})}
                               onClick={() => onChangeCurrentBlock(0)}>
                             Местоположение
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 1}, {activatedAction: currentBlock == 1}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 1}, {activatedAction: currentBlock === 1}))}
                               onClick={() => onChangeCurrentBlock(1)}>
                             Модель
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 2}, {activatedAction: currentBlock == 2}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 2}, {activatedAction: currentBlock === 2}))}
                               onClick={() => onChangeCurrentBlock(2)}>
                             Дополнительно
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 3}, {activatedAction: currentBlock == 3}))}
+                        <span className={cn(cx({blockedAction: blockedBlock < 3}, {activatedAction: currentBlock === 3}))}
                               onClick={() => onChangeCurrentBlock(3)}>
                             Итого
                         </span>
@@ -80,7 +80,7 @@ const OrderPage:React.FC = () => {
                     <div className={styles.helpBlock} ref={refHelp}>
                         Нажмите на стрелку, чтобы продолжить
                     </div>
-                    <div onClick={() => changeStateCheck()}>
+                    <div onClick={changeStateCheck}>
                         <img src={nextIcon} className={cn(styles.nextIcon, cx({nextIconActive: stateCheck}))}/>
                     </div>
                 </div>
