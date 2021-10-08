@@ -5,12 +5,13 @@ import {useDispatch} from "react-redux";
 import {fetchCategories} from "../../../store/actionCreators/categories";
 import {fetchCars, fetchCarsToCategory} from "../../../store/actionCreators/cars";
 import CarCard from "./carCard";
+import {changeIdCategory} from "../../../store/actionCreators/model";
 const Model:React.FC = () => {
     const {categories} = useTypeSelector(state => state.categories)
     const {cars, loading} = useTypeSelector(state => state.cars)
-    const [idCategory, setIdCategory] = useState<string>("")
-    const dispatch = useDispatch()
+    const {idCategory} = useTypeSelector(state => state.model)
 
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchCategories())
         dispatch(fetchCars())
@@ -18,10 +19,10 @@ const Model:React.FC = () => {
 
     const onChangeCategory = (id: string) => {
         if(!id){
-            setIdCategory("")
+            dispatch(changeIdCategory(id))
             dispatch(fetchCars())
         }else{
-            setIdCategory(id)
+            dispatch(changeIdCategory(id))
             dispatch(fetchCarsToCategory(id))
         }
     }

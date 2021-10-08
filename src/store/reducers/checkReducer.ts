@@ -10,9 +10,6 @@ const initialState:CheckState = {
     fullTank: false,
     babyChair: false,
     rightHandDrive: false,
-    currentBlock: 0,
-    blockedBlock: 0,
-    activeButton: false
 }
 
 export const checkReducer = (state = initialState, action: CheckAction):CheckState => {
@@ -22,35 +19,12 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
                 city: action.payload.city, pickUpPoint: action.payload.point, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: state.activeButton,
-                blockedBlock: state.blockedBlock,
             }
-        case CheckActionTypes.Change_StateButton:
+        case CheckActionTypes.Change_Model:
             return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
+                city: state.city, pickUpPoint: state.pickUpPoint, model: action.payload, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: action.payload,
-                blockedBlock: state.blockedBlock
-            }
-        case CheckActionTypes.Change_CurrentBlock:
-            return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
-                lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
-                babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: action.payload, activeButton: state.activeButton,
-                blockedBlock: state.blockedBlock,
-            }
-        case CheckActionTypes.Open_BlockedBlock:
-            return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
-                lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
-                babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: state.activeButton,
-                blockedBlock: action.payload,
             }
         default:
             return state
