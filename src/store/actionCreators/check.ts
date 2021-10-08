@@ -20,3 +20,14 @@ export const changeModel = (model: string) => {
         })
     }
 }
+
+export const changePrice = (priceMin:number, priceMax: number) => {
+    return (dispatch: Dispatch<CheckAction>) => {
+        dispatch({
+            type: CheckActionTypes.Change_Price,
+            payload: {
+                priceMin, priceMax
+            }
+        })
+    }
+}

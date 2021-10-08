@@ -8,6 +8,8 @@ export interface CheckState {
     fullTank: boolean;
     babyChair: boolean;
     rightHandDrive: boolean;
+    priceMin: number,
+    priceMax: number
 }
 
 export enum CheckActionTypes {
@@ -19,6 +21,7 @@ export enum CheckActionTypes {
     Change_FullTank = "Change_FullTank",
     Change_BabyChair = "Change_BabyChair",
     Change_RightHandDrive = "Change_RightHandDrive",
+    Change_Price = "Change_Price"
 }
 
 interface ChangePickUpPointAction {
@@ -56,7 +59,13 @@ interface ChangeRightHandDriveAction {
     type: CheckActionTypes.Change_RightHandDrive,
     payload: boolean
 }
-
+interface ChangePriceAction {
+    type: CheckActionTypes.Change_Price,
+    payload: {
+        priceMin: number,
+        priceMax: number
+    }
+}
 export type CheckAction = ChangeBabyChairAction | ChangeColorAction |
     ChangeFullTankAction | ChangeRightHandDriveAction | ChangePickUpPointAction | ChangeModelAction |
-    ChangeTariffAction | ChangeLeaseAction
+    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction

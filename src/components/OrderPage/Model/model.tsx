@@ -13,16 +13,20 @@ const Model:React.FC = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchCategories())
-        dispatch(fetchCars())
+        if(idCategory) {
+            dispatch(changeIdCategory(idCategory))
+            dispatch(fetchCarsToCategory(idCategory))
+        }else{
+            dispatch(fetchCategories())
+            dispatch(fetchCars())
+        }
     }, [])
 
     const onChangeCategory = (id: string) => {
+        dispatch(changeIdCategory(id))
         if(!id){
-            dispatch(changeIdCategory(id))
             dispatch(fetchCars())
         }else{
-            dispatch(changeIdCategory(id))
             dispatch(fetchCarsToCategory(id))
         }
     }

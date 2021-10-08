@@ -6,7 +6,6 @@ import nextIcon from "./next.svg"
 import cn from "classnames"
 import cnBind from "classnames/bind"
 import Check from "./Check/check";
-import {useDispatch} from "react-redux";
 import Model from "./Model/model";
 
 const cx = cnBind.bind(styles)
@@ -52,17 +51,23 @@ const OrderPage:React.FC = () => {
                             Местоположение
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: numberBlock < 1}, {activatedAction: currentBlock === 1}))}
+                        <span className={cn(cx(
+                                {blockedAction: numberBlock < 1},
+                                {activatedAction: currentBlock === 1}))}
                               onClick={() => onChangeCurrentBlock(1)}>
                             Модель
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: numberBlock < 2}, {activatedAction: currentBlock === 2}))}
+                        <span className={cn(cx(
+                            {blockedAction: numberBlock < 2},
+                            {activatedAction: currentBlock === 2}))}
                               onClick={() => onChangeCurrentBlock(2)}>
                             Дополнительно
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: numberBlock < 3}, {activatedAction: currentBlock === 3}))}
+                        <span className={cn(cx(
+                            {blockedAction: numberBlock < 3},
+                            {activatedAction: currentBlock === 3}))}
                               onClick={() => onChangeCurrentBlock(3)}>
                             Итого
                         </span>
@@ -86,7 +91,13 @@ const OrderPage:React.FC = () => {
                         Нажмите на стрелку, чтобы продолжить
                     </div>
                     <div onClick={changeStateCheck}>
-                        <img src={nextIcon} className={cn(styles.nextIcon, cx({nextIconActive: stateCheck}))}/>
+                        <img
+                            src={nextIcon}
+                            className={
+                                cn(styles.nextIcon,
+                                    cx({nextIconActive: stateCheck}))
+                            }
+                        />
                     </div>
                 </div>
             </div>

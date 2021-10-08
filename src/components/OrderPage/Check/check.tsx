@@ -14,8 +14,14 @@ interface ICheck{
     setCurrentBlock: Dispatch<SetStateAction<number>>
 }
 
-const Check:React.FC<ICheck> = ({stateCheck, numberBlock, currentBlock, setNumberBlock, setCurrentBlock}) => {
-    const {city, pickUpPoint, model} = useTypeSelector(state => state.check)
+const Check:React.FC<ICheck> = ({
+        stateCheck,
+        numberBlock,
+        currentBlock,
+        setNumberBlock,
+        setCurrentBlock
+    }) => {
+    const {city, pickUpPoint, model, priceMin, priceMax} = useTypeSelector(state => state.check)
 
     const onChangeCurrentBlock = () => {
         if (currentBlock === numberBlock){
@@ -58,16 +64,27 @@ const Check:React.FC<ICheck> = ({stateCheck, numberBlock, currentBlock, setNumbe
                     <span>Пункт выдачи</span>
                     <span>{pickUpPoint ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
                 </div>
-                <div style={currentBlock > 0 ? {display: "flex"} : {display: "none"}}>
-                    <span>Модель</span>
-                    <span>{model ? model : 'Не выбран'}</span>
-                </div>
+                {
+                    numberBlock > 0
+                        ?
+                        <div>
+                            <span>Модель</span>
+                            <span>{model ? model : 'Не выбран'}</span>
+                        </div>
+                        :
+                        <></>
+                }
             </div>
             <div className={styles.priceBlock}>
                 <span>Цена: </span>
-                <span>от 10000 до 32000 ₽</span>
+                <span>от {priceMin} до {priceMax} ₽</span>
             </div>
-            <div className={cn(styles.buttonAction, cx({blockButtonAction: !changeStateButton()}))} onClick={() => onChangeCurrentBlock()}>
+            <div
+                className={
+                    cn(styles.buttonAction,
+                        cx({blockButtonAction: !changeStateButton()}))
+                }
+                onClick={() => onChangeCurrentBlock()}>
                 {changeButtonBlock()}
             </div>
         </div>
