@@ -2,7 +2,7 @@ import React, {ChangeEvent, useEffect, useState} from 'react'
 import styles from './location.module.scss'
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useDispatch} from "react-redux";
-import {changePickUpPoint, changeStateButton} from "../../../store/actionCreators/check";
+import {changePickUpPoint} from "../../../store/actionCreators/check";
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
 import {changeCoordinates, changeIdCity, changePoint, changeZoom} from "../../../store/actionCreators/location";
 import {fetchCities} from "../../../store/actionCreators/cities";
@@ -77,7 +77,6 @@ const Location:React.FC = () => {
         pointsWithCoordinates.map(point => {
             if(point.address === e.target.value){
                 dispatch(changePickUpPoint(point.cityId.name, e.target.value))
-                dispatch(changeStateButton(true))
                 dispatch(changeZoom(16))
                 dispatch(changeCoordinates(point.coordinates))
                 dispatch(changePoint(e.target.value))
@@ -88,7 +87,6 @@ const Location:React.FC = () => {
     const onClickPoint = (point: IPoint) => {
         setValueInput(point.address)
         dispatch(changeZoom(16))
-        dispatch(changeStateButton(true))
         dispatch(changeCoordinates(point.coordinates))
         dispatch(changePoint(point.address))
         dispatch(changePickUpPoint(point.cityId.name, point.address))

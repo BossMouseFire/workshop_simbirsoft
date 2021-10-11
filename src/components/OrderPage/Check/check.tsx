@@ -1,26 +1,58 @@
-import React from 'react'
+import React, {Dispatch, SetStateAction} from 'react'
 import styles from "../orderPage.module.scss";
 import cn from "classnames"
 import cnBind from "classnames/bind"
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
-import {useDispatch} from "react-redux";
-import {changeCurrentBlock, openBlockedBlock} from "../../../store/actionCreators/check";
 
 const cx = cnBind.bind(styles)
 
 interface ICheck{
     stateCheck: boolean,
+    numberBlock: number,
+    currentBlock: number,
+    setNumberBlock: Dispatch<SetStateAction<number>>,
+    setCurrentBlock: Dispatch<SetStateAction<number>>
 }
 
-const Check:React.FC<ICheck> = ({stateCheck}) => {
-    const {city, pickUpPoint, activeButton, currentBlock, blockedBlock} = useTypeSelector(state => state.check)
-    const dispatch = useDispatch()
+const Check:React.FC<ICheck> = ({
+        stateCheck,
+        numberBlock,
+        currentBlock,
+        setNumberBlock,
+        setCurrentBlock
+    }) => {
+    const {city, pickUpPoint, model, priceMin, priceMax} = useTypeSelector(state => state.check)
 
     const onChangeCurrentBlock = () => {
-        // На данный момент я просто прибавляю единицу для смены закрытого блокова.
-        // Далее при добавлении дальнейших разделов я буду проверять заполняемость полей для каждого блока.
-        dispatch(openBlockedBlock(blockedBlock + 1))
-        dispatch(changeCurrentBlock(currentBlock + 1))
+        if (currentBlock === numberBlock){
+            setNumberBlock(state => state + 1)
+        }
+        setCurrentBlock(state => state + 1)
+    }
+
+    const changeStateButton = () => {
+        switch (currentBlock){
+            case 0:
+                return city && pickUpPoint;
+            case 1:
+                return city && pickUpPoint && model;
+            default:
+                return false
+        }
+    }
+    const changeButtonBlock = () => {
+        switch (currentBlock){
+            case 0:
+                return "Выбрать модель"
+            case 1:
+                return "Дополнительно"
+            case 2:
+                return "Итого"
+            case 3:
+                return "Заказать"
+            default:
+                return "Отмена"
+        }
     }
     return(
         <div className={cn(styles.check, cx({checkActive: stateCheck}))}>
@@ -32,13 +64,25 @@ const Check:React.FC<ICheck> = ({stateCheck}) => {
                     <span>Пункт выдачи</span>
                     <span>{pickUpPoint ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
                 </div>
+                {
+                    numberBlock > 0 &&
+                        <div>
+                            <span>Модель</span>
+                            <span>{model ? model : 'Не выбран'}</span>
+                        </div>
+                }
             </div>
             <div className={styles.priceBlock}>
                 <span>Цена: </span>
-                <span>от 10000 до 32000 ₽</span>
+                <span>от {priceMin} до {priceMax} ₽</span>
             </div>
-            <div className={cn(styles.buttonAction, cx({blockButtonAction: !activeButton}))} onClick={() => onChangeCurrentBlock()}>
-                Выбрать модель
+            <div
+                className={
+                    cn(styles.buttonAction,
+                        cx({blockButtonAction: !changeStateButton()}))
+                }
+                onClick={() => onChangeCurrentBlock()}>
+                {changeButtonBlock()}
             </div>
         </div>
     )
