@@ -8,9 +8,8 @@ export interface CheckState {
     fullTank: boolean;
     babyChair: boolean;
     rightHandDrive: boolean;
-    currentBlock: number;
-    activeButton: boolean,
-    blockedBlock: number
+    priceMin: number,
+    priceMax: number
 }
 
 export enum CheckActionTypes {
@@ -22,9 +21,7 @@ export enum CheckActionTypes {
     Change_FullTank = "Change_FullTank",
     Change_BabyChair = "Change_BabyChair",
     Change_RightHandDrive = "Change_RightHandDrive",
-    Change_CurrentBlock = "Change_CurrentBlock",
-    Change_StateButton = "Change_StateButton",
-    Open_BlockedBlock = "Open_BlockedBlock"
+    Change_Price = "Change_Price"
 }
 
 interface ChangePickUpPointAction {
@@ -62,19 +59,13 @@ interface ChangeRightHandDriveAction {
     type: CheckActionTypes.Change_RightHandDrive,
     payload: boolean
 }
-interface ChangeCurrentBlockAction {
-    type: CheckActionTypes.Change_CurrentBlock,
-    payload: number
+interface ChangePriceAction {
+    type: CheckActionTypes.Change_Price,
+    payload: {
+        priceMin: number,
+        priceMax: number
+    }
 }
-interface ChangeStateButton {
-    type: CheckActionTypes.Change_StateButton,
-    payload: boolean
-}
-interface OpenBlockedBlock {
-    type: CheckActionTypes.Open_BlockedBlock,
-    payload: number
-}
-
-export type CheckAction = ChangeBabyChairAction | ChangeColorAction | ChangeCurrentBlockAction |
+export type CheckAction = ChangeBabyChairAction | ChangeColorAction |
     ChangeFullTankAction | ChangeRightHandDriveAction | ChangePickUpPointAction | ChangeModelAction |
-    ChangeTariffAction | ChangeLeaseAction | ChangeStateButton | OpenBlockedBlock
+    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction

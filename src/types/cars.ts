@@ -11,6 +11,12 @@ export interface ICar {
     },
     tank: number,
     color: string[],
+    priceMin: number,
+    priceMax: number
+}
+
+export interface ICarCard {
+    car: ICar
 }
 
 export interface CarsState {

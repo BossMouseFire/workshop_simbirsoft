@@ -6,19 +6,17 @@ import nextIcon from "./next.svg"
 import cn from "classnames"
 import cnBind from "classnames/bind"
 import Check from "./Check/check";
-import {useTypeSelector} from "../../hooks/useTypeSelector";
-import {useDispatch} from "react-redux";
-import {changeCurrentBlock} from "../../store/actionCreators/check";
+import Model from "./Model/model";
 
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
     const [stateCheck, setStateCheck] = useState<boolean>(false);
-    const {currentBlock, blockedBlock} = useTypeSelector(state => state.check)
-    const dispatch = useDispatch()
     const refHelp = useRef() as React.MutableRefObject<HTMLDivElement>;
+    const [numberBlock, setNumberBlock] = useState<number>(0)
+    const [currentBlock, setCurrentBlock] = useState<number>(0)
     const [stateHelpBlock, setStateHelpBlock] = useState<boolean>(false)
     const onChangeCurrentBlock = (number: number) => {
-        dispatch(changeCurrentBlock(number))
+        setCurrentBlock(number)
     }
     useEffect(() => {
         setTimeout(() => {
@@ -53,17 +51,23 @@ const OrderPage:React.FC = () => {
                             Местоположение
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 1}, {activatedAction: currentBlock === 1}))}
+                        <span className={cn(cx(
+                                {blockedAction: numberBlock < 1},
+                                {activatedAction: currentBlock === 1}))}
                               onClick={() => onChangeCurrentBlock(1)}>
                             Модель
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 2}, {activatedAction: currentBlock === 2}))}
+                        <span className={cn(cx(
+                            {blockedAction: numberBlock < 2},
+                            {activatedAction: currentBlock === 2}))}
                               onClick={() => onChangeCurrentBlock(2)}>
                             Дополнительно
                         </span>
                         <div/>
-                        <span className={cn(cx({blockedAction: blockedBlock < 3}, {activatedAction: currentBlock === 3}))}
+                        <span className={cn(cx(
+                            {blockedAction: numberBlock < 3},
+                            {activatedAction: currentBlock === 3}))}
                               onClick={() => onChangeCurrentBlock(3)}>
                             Итого
                         </span>
@@ -72,16 +76,28 @@ const OrderPage:React.FC = () => {
                 </div>
                 <div className={styles.blockAction}>
                     {
-                        currentBlock === 0 ? <Location/> : <div></div>
+                        currentBlock === 0 ? <Location/> : currentBlock === 1 ? <Model/> : <div/>
 
                     }
                     <div className={styles.verticalLine}/>
-                    <Check stateCheck={stateCheck}/>
+                    <Check
+                        stateCheck={stateCheck}
+                        numberBlock={numberBlock}
+                        setNumberBlock={setNumberBlock}
+                        currentBlock={currentBlock}
+                        setCurrentBlock={setCurrentBlock}
+                    />
                     <div className={styles.helpBlock} ref={refHelp}>
                         Нажмите на стрелку, чтобы продолжить
                     </div>
                     <div onClick={changeStateCheck}>
-                        <img src={nextIcon} className={cn(styles.nextIcon, cx({nextIconActive: stateCheck}))}/>
+                        <img
+                            src={nextIcon}
+                            className={
+                                cn(styles.nextIcon,
+                                    cx({nextIconActive: stateCheck}))
+                            }
+                        />
                     </div>
                 </div>
             </div>

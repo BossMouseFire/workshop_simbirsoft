@@ -10,9 +10,8 @@ const initialState:CheckState = {
     fullTank: false,
     babyChair: false,
     rightHandDrive: false,
-    currentBlock: 0,
-    blockedBlock: 0,
-    activeButton: false
+    priceMin: 1000,
+    priceMax: 300000
 }
 
 export const checkReducer = (state = initialState, action: CheckAction):CheckState => {
@@ -22,35 +21,21 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
                 city: action.payload.city, pickUpPoint: action.payload.point, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: state.activeButton,
-                blockedBlock: state.blockedBlock,
+                priceMin: state.priceMin, priceMax: state.priceMax,
             }
-        case CheckActionTypes.Change_StateButton:
+        case CheckActionTypes.Change_Model:
             return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
+                city: state.city, pickUpPoint: state.pickUpPoint, model: action.payload, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: action.payload,
-                blockedBlock: state.blockedBlock
+                priceMin: state.priceMin, priceMax: state.priceMax,
             }
-        case CheckActionTypes.Change_CurrentBlock:
+        case CheckActionTypes.Change_Price:
             return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
+                city: state.city, pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
                 lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
                 babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: action.payload, activeButton: state.activeButton,
-                blockedBlock: state.blockedBlock,
-            }
-        case CheckActionTypes.Open_BlockedBlock:
-            return {
-                city: state.city,
-                pickUpPoint: state.pickUpPoint, model: state.model, color: state.color,
-                lease: state.lease, tariff: state.tariff, fullTank: state.fullTank,
-                babyChair: state.babyChair, rightHandDrive: state.rightHandDrive,
-                currentBlock: state.currentBlock, activeButton: state.activeButton,
-                blockedBlock: action.payload,
+                priceMin: action.payload.priceMin, priceMax: action.payload.priceMax,
             }
         default:
             return state
