@@ -7,19 +7,13 @@ import cn from "classnames"
 import cnBind from "classnames/bind"
 import {changeIdCar} from "../../../store/actionCreators/model";
 import {changeModel, changePrice} from "../../../store/actionCreators/check";
+import {convertUrlImg} from "../../../utils/utils";
 
 const cx = cnBind.bind(styles)
 
 const CarCard:React.FC<ICarCard> = ({car}) => {
     const dispatch = useDispatch()
     const {idCar} = useTypeSelector(state => state.model)
-
-    const convertUrlImg = (path: string) => {
-        if (path.indexOf("file") !== -1){
-            return `https://api-factory.simbirsoft1.com${path}`
-        }
-        return path
-    }
 
     const onChangeCar = (car: ICar) => {
         dispatch(changePrice(car.priceMin, car.priceMax))

@@ -54,17 +54,16 @@ const Model:React.FC = () => {
             </div>
             <div className={styles.carsBlock}>
                 {
-                    loading
+                    loading && <div className={styles.loader}/>
+                }
+                {
+                    !loading && !cars.length
                         ?
-                        <div className={styles.loader}/>
+                        <div className={styles.carNull}>Ничего не найдено</div>
                         :
-                        !cars.length
-                            ?
-                            <div className={styles.carNull}>Ничего не найдено</div>
-                            :
-                            cars.map(car =>
-                                <CarCard car={car}/>
-                                )
+                        cars.map(car =>
+                            <CarCard car={car}/>
+                        )
                 }
             </div>
         </div>

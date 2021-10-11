@@ -33,9 +33,9 @@ const Check:React.FC<ICheck> = ({
     const changeStateButton = () => {
         switch (currentBlock){
             case 0:
-                return city !== "" && pickUpPoint !== "";
+                return city && pickUpPoint;
             case 1:
-                return city !== "" && pickUpPoint !== "" && model !== "";
+                return city && pickUpPoint && model;
             default:
                 return false
         }
@@ -65,14 +65,11 @@ const Check:React.FC<ICheck> = ({
                     <span>{pickUpPoint ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
                 </div>
                 {
-                    numberBlock > 0
-                        ?
+                    numberBlock > 0 &&
                         <div>
                             <span>Модель</span>
                             <span>{model ? model : 'Не выбран'}</span>
                         </div>
-                        :
-                        <></>
                 }
             </div>
             <div className={styles.priceBlock}>
