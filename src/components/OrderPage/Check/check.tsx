@@ -21,7 +21,20 @@ const Check:React.FC<ICheck> = ({
         setNumberBlock,
         setCurrentBlock
     }) => {
-    const {city, pickUpPoint, model, priceMin, priceMax} = useTypeSelector(state => state.check)
+    const {
+        city,
+        pickUpPoint,
+        model,
+        priceMin,
+        priceMax,
+        colorSelected,
+        priceTotal,
+        tariff,
+        lease,
+        rightHandDrive,
+        babyChair,
+        fullTank
+    } = useTypeSelector(state => state.check)
 
     const onChangeCurrentBlock = () => {
         if (currentBlock === numberBlock){
@@ -35,7 +48,9 @@ const Check:React.FC<ICheck> = ({
             case 0:
                 return city && pickUpPoint;
             case 1:
-                return city && pickUpPoint && model;
+                return city && pickUpPoint && model.name;
+            case 2:
+                return city && pickUpPoint && model.name && colorSelected && lease && tariff;
             default:
                 return false
         }
@@ -54,6 +69,18 @@ const Check:React.FC<ICheck> = ({
                 return "Отмена"
         }
     }
+    const convertLease = (lease: number) => {
+        const days = Math.floor(lease / 1440)
+        const hours = Math.floor((lease - days * 1440) / 60)
+        const minutes = lease - days * 1440 - hours * 60
+        if(days) {
+            return `${days} д ${hours ? hours + ' ч' : ''}`
+        } else if(hours) {
+            return `${hours} ч ${minutes ? minutes + ' м' : ''}`
+        } else {
+            return `${minutes} м`
+        }
+    }
     return(
         <div className={cn(styles.check, cx({checkActive: stateCheck}))}>
             <div className={styles.head}>
@@ -68,13 +95,56 @@ const Check:React.FC<ICheck> = ({
                     numberBlock > 0 &&
                         <div>
                             <span>Модель</span>
-                            <span>{model ? model : 'Не выбран'}</span>
+                            <span>{model.name ? model.name : 'Не выбран'}</span>
                         </div>
+                }
+                {
+                    numberBlock > 1 &&
+                        <>
+                            <div>
+                                <span>Цвет</span>
+                                <span>{colorSelected ? colorSelected : 'Не выбран'}</span>
+                            </div>
+                            <div>
+                                <span>Длительность аренды</span>
+                                <span>{lease ? convertLease(lease) : '-'}</span>
+                            </div>
+                            <div>
+                                <span>Тариф</span>
+                                <span>{tariff ? tariff : 'Не выбран'}</span>
+                            </div>
+                        </>
+                }
+                {
+                    fullTank &&
+                    <div>
+                        <span>Полный бак</span>
+                        <span>{fullTank ? 'Да' : ''}</span>
+                    </div>
+                }
+                {
+                    babyChair &&
+                    <div>
+                        <span>Детское кресло</span>
+                        <span>{babyChair ? 'Да' : ''}</span>
+                    </div>
+                }
+                {
+                    rightHandDrive &&
+                    <div>
+                        <span>Правый руль</span>
+                        <span>{rightHandDrive ? 'Да' : ''}</span>
+                    </div>
                 }
             </div>
             <div className={styles.priceBlock}>
                 <span>Цена: </span>
-                <span>от {priceMin} до {priceMax} ₽</span>
+                {
+                    numberBlock <= 1 && <span>от {priceMin} до {priceMax} ₽</span>
+                }
+                {
+                    numberBlock > 1 && <span>{priceTotal} ₽</span>
+                }
             </div>
             <div
                 className={

@@ -1,6 +1,7 @@
 .model{
   display: flex;
   flex-direction: column;
+  width:  51vw;
   @media screen and (min-width: 1024px) and (max-width: 1439px){
     width: 60vw;
   }
@@ -86,7 +87,7 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     margin-top: 3.3vw;
-    overflow: scroll;
+    overflow-y: scroll;
     @media screen and (max-width: 767px){
       grid-template-columns: 1fr;
       margin-top: 10vw;

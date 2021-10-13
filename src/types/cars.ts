@@ -10,7 +10,7 @@ export interface ICar {
         path: string
     },
     tank: number,
-    color: string[],
+    colors: string[],
     priceMin: number,
     priceMax: number
 }

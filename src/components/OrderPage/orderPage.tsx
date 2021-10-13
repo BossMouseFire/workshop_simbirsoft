@@ -7,6 +7,7 @@ import cn from "classnames"
 import cnBind from "classnames/bind"
 import Check from "./Check/check";
 import Model from "./Model/model";
+import Additional from "./Additional/additional";
 
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
@@ -76,8 +77,13 @@ const OrderPage:React.FC = () => {
                 </div>
                 <div className={styles.blockAction}>
                     {
-                        currentBlock === 0 ? <Location/> : currentBlock === 1 ? <Model/> : <div/>
-
+                        currentBlock === 0 && <Location/>
+                    }
+                    {
+                        currentBlock === 1 && <Model/>
+                    }
+                    {
+                        currentBlock === 2 && <Additional/>
                     }
                     <div className={styles.verticalLine}/>
                     <Check
