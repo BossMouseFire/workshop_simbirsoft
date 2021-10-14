@@ -40,6 +40,8 @@ export const checkReducer = (state = initialState, action: CheckAction):CheckSta
             return {...state, babyChair: action.payload}
         case CheckActionTypes.Change_RightHandDrive:
             return {...state, rightHandDrive: action.payload}
+        case CheckActionTypes.Change_Date_Start:
+            return {...state, dateStart: action.payload}
         default:
             return state
     }

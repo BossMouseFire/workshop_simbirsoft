@@ -17,7 +17,7 @@ const OrderPage:React.FC = () => {
     const [numberBlock, setNumberBlock] = useState<number>(0)
     const [currentBlock, setCurrentBlock] = useState<number>(0)
     const [stateHelpBlock, setStateHelpBlock] = useState<boolean>(false)
-
+    const [stateConfirmModal, setStateConfirmModal] = useState<boolean>(false)
     useEffect(() => {
         setTimeout(() => {
             if(window.innerWidth < 1024 && !stateHelpBlock){
@@ -69,8 +69,8 @@ const OrderPage:React.FC = () => {
                         </span>
                         <div/>
                         <span className={cn(cx(
-                                {blockedAction: numberBlock < 1},
-                                {activatedAction: currentBlock === 1}))}
+                            {blockedAction: numberBlock < 1},
+                            {activatedAction: currentBlock === 1}))}
                               onClick={() => changeCurrentNumberBlock(1)}>
                             Модель
                         </span>
@@ -100,6 +100,7 @@ const OrderPage:React.FC = () => {
                         setNumberBlock={setNumberBlock}
                         currentBlock={currentBlock}
                         setCurrentBlock={setCurrentBlock}
+                        setStateConfirmModal={setStateConfirmModal}
                     />
                     <div className={styles.helpBlock} ref={refHelp}>
                         Нажмите на стрелку, чтобы продолжить
@@ -112,6 +113,19 @@ const OrderPage:React.FC = () => {
                                     cx({nextIconActive: stateCheck}))
                             }
                         />
+                    </div>
+                </div>
+                <div className={cn(styles.confirmModal, cx({modalActive: stateConfirmModal}))}>
+                    <div className={styles.form}>
+                        <span>Подтвердить заказ</span>
+                        <div className={styles.buttonsAction}>
+                            <div className={styles.confirmButton}>
+                                Подтвердить
+                            </div>
+                            <div className={styles.backButton} onClick={() => setStateConfirmModal(false)}>
+                                Вернуться
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

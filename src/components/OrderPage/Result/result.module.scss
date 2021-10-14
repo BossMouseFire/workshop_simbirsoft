@@ -1,7 +1,6 @@
 .result{
-  display: flex;
-  flex-direction: column;
   width: 51vw;
+  margin-top: 2.2vw;
   @media screen and (min-width: 1024px) and (max-width: 1439px){
     width: 60vw;
   }
@@ -10,5 +9,105 @@
   }
   @media screen and (max-width: 767px){
     width: 100vw;
+  }
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      margin-top: 10vw;
+    }
+    .information{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .nameModel{
+        font-size: 1.25vw;
+        line-height: 1.46vw;
+        font-weight: 300;
+        color: #121212;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          font-size: 1.76vw;
+          line-height: 1.5vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          font-size: 2.34vw;
+          line-height: 2vw;
+        }
+        @media screen and (max-width: 767px){
+          font-size: 5vw;
+          line-height: 4.27vw;
+        }
+      }
+      .numberModel{
+        display: inline-block;
+        font-size: 1vw;
+        font-weight: 300;
+        line-height: 1.1vw;
+        border: 1px solid #999999;
+        border-radius: 4px;
+        padding: 0.28vw 0.56vw;
+        margin-top: 0.56vw;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          font-size: 1.36vw;
+          padding: 0.41vw 0.84vw;
+          margin-top: 1vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          font-size: 1.83vw;
+          margin-top: 1.5vw;
+          padding: 0.56vw 1.12vw;
+          line-height: 1.5vw;
+        }
+        @media screen and (max-width: 767px){
+          font-size: 4.38vw;
+          margin-top: 4vw;
+          padding: 2vw 4vw;
+          line-height: 2vw;
+        }
+      }
+      .addInfo{
+        font-size: 1vw;
+        line-height: 1.1vw;
+        color: #121212;
+        margin-top: 0.56vw;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          font-size: 1.36vw;
+          margin-top: 1vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          font-size: 1.83vw;
+          margin-top: 1.5vw;
+        }
+        @media screen and (max-width: 767px){
+          font-size: 4.38vw;
+          margin-top: 4vw;
+        }
+        span{
+          &:nth-of-type(1){
+            font-weight: bold;
+          }
+          &:nth-of-type(2){
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    .imgBlock{
+      width: 17.7vw;
+      align-self: flex-end;
+      @media screen and (min-width: 1024px) and (max-width: 1439px){
+        width: 25vw;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px){
+        width: 30vw;
+      }
+      @media screen and (max-width: 767px){
+        width: 60vw;
+        align-self: normal;
+        margin-top: 4vw;
+      }
+    }
   }
 }

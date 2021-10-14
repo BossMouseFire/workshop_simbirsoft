@@ -11,7 +11,8 @@ interface ICheck{
     numberBlock: number,
     currentBlock: number,
     setNumberBlock: Dispatch<SetStateAction<number>>,
-    setCurrentBlock: Dispatch<SetStateAction<number>>
+    setCurrentBlock: Dispatch<SetStateAction<number>>,
+    setStateConfirmModal: Dispatch<SetStateAction<boolean>>
 }
 
 const Check:React.FC<ICheck> = ({
@@ -19,7 +20,8 @@ const Check:React.FC<ICheck> = ({
         numberBlock,
         currentBlock,
         setNumberBlock,
-        setCurrentBlock
+        setCurrentBlock,
+        setStateConfirmModal
     }) => {
     const {
         city,
@@ -37,10 +39,14 @@ const Check:React.FC<ICheck> = ({
     } = useTypeSelector(state => state.check)
 
     const onChangeCurrentBlock = () => {
-        if (currentBlock === numberBlock){
-            setNumberBlock(state => state + 1)
+        if(currentBlock !== 3){
+            if (currentBlock === numberBlock){
+                setNumberBlock(state => state + 1)
+            }
+            setCurrentBlock(state => state + 1)
+        } else{
+            setStateConfirmModal(true)
         }
-        setCurrentBlock(state => state + 1)
     }
 
     const changeStateButton = () => {
@@ -50,6 +56,8 @@ const Check:React.FC<ICheck> = ({
             case 1:
                 return city && pickUpPoint && model.name;
             case 2:
+                return city && pickUpPoint && model.name && colorSelected && lease && tariff;
+            case 3:
                 return city && pickUpPoint && model.name && colorSelected && lease && tariff;
             default:
                 return false
