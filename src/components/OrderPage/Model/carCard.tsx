@@ -6,8 +6,9 @@ import {useTypeSelector} from "../../../hooks/useTypeSelector";
 import cn from "classnames"
 import cnBind from "classnames/bind"
 import {changeIdCar} from "../../../store/actionCreators/model";
-import {changeModel, changePrice} from "../../../store/actionCreators/check";
+import {changeColorSelected, changeModel, changePrice} from "../../../store/actionCreators/check";
 import {convertUrlImg} from "../../../utils/utils";
+import {changeColorLocal} from "../../../store/actionCreators/additional";
 
 const cx = cnBind.bind(styles)
 
@@ -16,9 +17,12 @@ const CarCard:React.FC<ICarCard> = ({car}) => {
     const {idCar} = useTypeSelector(state => state.model)
 
     const onChangeCar = (car: ICar) => {
+        console.log(car)
         dispatch(changePrice(car.priceMin, car.priceMax))
-        dispatch(changeModel(car.name))
+        dispatch(changeModel(car))
         dispatch(changeIdCar(car.id))
+        dispatch(changeColorLocal("Любой"))
+        dispatch(changeColorSelected("Любой"))
     }
 
     return(

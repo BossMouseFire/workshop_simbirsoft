@@ -1,15 +1,19 @@
+import {ICar} from "./cars";
+
 export interface CheckState {
-    city: string;
+    city: string
     pickUpPoint: string;
-    model: string;
-    color: string;
-    lease: string;
+    model: ICar;
+    colorSelected: string;
+    lease: number;
     tariff: string;
     fullTank: boolean;
     babyChair: boolean;
     rightHandDrive: boolean;
     priceMin: number,
-    priceMax: number
+    priceMax: number,
+    priceTotal: number,
+    dateStart: string
 }
 
 export enum CheckActionTypes {
@@ -21,7 +25,9 @@ export enum CheckActionTypes {
     Change_FullTank = "Change_FullTank",
     Change_BabyChair = "Change_BabyChair",
     Change_RightHandDrive = "Change_RightHandDrive",
-    Change_Price = "Change_Price"
+    Change_Price = "Change_Price",
+    Change_Total_Price = "Change_Total_Price",
+    Change_Date_Start = "Change_Date_Start"
 }
 
 interface ChangePickUpPointAction {
@@ -33,7 +39,7 @@ interface ChangePickUpPointAction {
 }
 interface ChangeModelAction {
     type: CheckActionTypes.Change_Model,
-    payload: string
+    payload: ICar
 }
 interface ChangeColorAction {
     type: CheckActionTypes.Change_Color,
@@ -41,7 +47,7 @@ interface ChangeColorAction {
 }
 interface ChangeLeaseAction {
     type: CheckActionTypes.Change_Lease,
-    payload: string
+    payload: number
 }
 interface ChangeTariffAction {
     type: CheckActionTypes.Change_Tariff,
@@ -66,6 +72,15 @@ interface ChangePriceAction {
         priceMax: number
     }
 }
+interface ChangeTotalPrice {
+    type: CheckActionTypes.Change_Total_Price,
+    payload: number
+}
+
+interface ChangeDateStart {
+    type: CheckActionTypes.Change_Date_Start,
+    payload: string
+}
 export type CheckAction = ChangeBabyChairAction | ChangeColorAction |
     ChangeFullTankAction | ChangeRightHandDriveAction | ChangePickUpPointAction | ChangeModelAction |
-    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction
+    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction | ChangeTotalPrice | ChangeDateStart

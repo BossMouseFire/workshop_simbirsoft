@@ -23,11 +23,13 @@ const Model:React.FC = () => {
     }, [])
 
     const onChangeCategory = (id: string) => {
-        dispatch(changeIdCategory(id))
-        if(!id){
-            dispatch(fetchCars())
-        }else{
-            dispatch(fetchCarsToCategory(id))
+        if (!loading){
+            dispatch(changeIdCategory(id))
+            if(!id){
+                dispatch(fetchCars())
+            }else{
+                dispatch(fetchCarsToCategory(id))
+            }
         }
     }
     return(

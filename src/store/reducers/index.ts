@@ -6,6 +6,7 @@ import {pointsReducer} from "./pointsReducer";
 import {categoriesReducer} from "./categoriesReducer";
 import {carsReducer} from "./carsReducer";
 import {modelReducer} from "./modelReducer";
+import {additionalReducer} from "./additionalReducer";
 
 export const rootReducer = combineReducers({
     check: checkReducer,
@@ -14,7 +15,8 @@ export const rootReducer = combineReducers({
     points: pointsReducer,
     categories: categoriesReducer,
     cars: carsReducer,
-    model: modelReducer
+    model: modelReducer,
+    additional: additionalReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>
