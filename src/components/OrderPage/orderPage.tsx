@@ -8,6 +8,7 @@ import cnBind from "classnames/bind"
 import Check from "./Check/check";
 import Model from "./Model/model";
 import Additional from "./Additional/additional";
+import Result from "./Result/result";
 
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
@@ -43,6 +44,8 @@ const OrderPage:React.FC = () => {
                 return <Model/>
             case 2:
                 return <Additional/>
+            case 3:
+                return <Result/>
         }
     }
     return(
