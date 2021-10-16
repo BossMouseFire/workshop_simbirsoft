@@ -3,6 +3,7 @@ import styles from "../orderPage.module.scss";
 import cn from "classnames"
 import cnBind from "classnames/bind"
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
+import {isEmptyObject} from "../../../utils/utils";
 
 const cx = cnBind.bind(styles)
 
@@ -97,7 +98,7 @@ const Check:React.FC<ICheck> = ({
             <div className={styles.requisites}>
                 <div>
                     <span>Пункт выдачи</span>
-                    <span>{pickUpPoint ? `${city}, ${pickUpPoint}` : 'Не выбран'}</span>
+                    <span>{pickUpPoint.name ? `${city.name}, ${pickUpPoint.address}` : 'Не выбран'}</span>
                 </div>
                 {
                     numberBlock > 0 &&
@@ -119,7 +120,7 @@ const Check:React.FC<ICheck> = ({
                             </div>
                             <div>
                                 <span>Тариф</span>
-                                <span>{tariff ? tariff : 'Не выбран'}</span>
+                                <span>{!isEmptyObject(tariff) ? tariff.rateTypeId.name : 'Не выбран'}</span>
                             </div>
                         </>
                 }

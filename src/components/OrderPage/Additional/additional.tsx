@@ -1,10 +1,10 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import styles from './additional.module.scss'
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
 import {useDispatch} from "react-redux";
 import {
     changeBabyChair,
-    changeColorSelected, changeDateStart, changeFullTank,
+    changeColorSelected, changeDate, changeFullTank,
     changeLease, changeRightHandDrive,
     changeTariff,
     changeTotalPrice
@@ -16,6 +16,8 @@ import {
     changeFullTankLocal, changeRightHandDriveLocal,
     changeTariffLocal
 } from "../../../store/actionCreators/additional";
+import {getRates} from "../../../api/api";
+import {IRate} from "../../../types/api";
 const Additional:React.FC = () => {
     const dispatch = useDispatch()
     const {model, lease, priceMin, priceTotal} = useTypeSelector(state => state.check)
@@ -24,6 +26,13 @@ const Additional:React.FC = () => {
         fullTankState, babyChairState,
         rightHandDriveState} = useTypeSelector(state => state.additional)
     const [dateStart, setDateStart] = useState<string>("")
+    const [rates, setRates] = useState<IRate[]>([])
+    useEffect(() => {
+       getRates()
+           .then(response => {
+               setRates(response.data.data)
+           })
+    }, [])
 
     const changeInputType = (e: ChangeEvent<HTMLInputElement>) => {
         e.target.type = 'datetime-local'
@@ -37,29 +46,38 @@ const Additional:React.FC = () => {
 
     const changeDateStartLocal = (e: ChangeEvent<HTMLInputElement>) => {
         setDateStart(e.target.value)
-        dispatch(changeDateStart(e.target.value))
     }
 
     const changeDurationLease = (e: ChangeEvent<HTMLInputElement>) => {
         const dateStartToSecond = Date.parse(dateStart) / 1000
         const dateEndToSecond = Date.parse(e.target.value) / 1000
         const leaseToMinute = Math.ceil((dateEndToSecond - dateStartToSecond) / 60)
+        dispatch(changeDate(dateStart, e.target.value))
         dispatch(changeDateLocal(dateStart, e.target.value))
         dispatch(changeLease(leaseToMinute))
     }
 
-    const changeTariffLease = (e: ChangeEvent<HTMLInputElement>) => {
-        if(e.target.value === "Поминутно"){
-            let price = lease * 7
-            dispatch(changeTotalPrice(priceMin + price))
-            dispatch(changeTariff(e.target.value))
-            dispatch(changeTariffLocal(e.target.value))
-        }else{
-            const dayAmount = Math.ceil(lease / 1440) * 1999
-            dispatch(changeTotalPrice(priceMin + dayAmount))
-            dispatch(changeTariff(e.target.value))
-            dispatch(changeTariffLocal(e.target.value))
+    const changeTariffLease = (tariff: IRate) => {
+        let price;
+        switch (tariff.rateTypeId.unit){
+            case "мин":
+                price = lease * tariff.price
+                break
+            case "сутки":
+                price = Math.ceil(lease / 1440) * tariff.price
+                break
+            case "7 дней":
+                price = Math.ceil(lease / 10080) * tariff.price
+                break
+            case "30 дней":
+                price = Math.ceil(lease / 43200) * tariff.price
+                break
+            default:
+                price = 0
         }
+        dispatch(changeTotalPrice(priceMin + price))
+        dispatch(changeTariff(tariff))
+        dispatch(changeTariffLocal(tariff))
     }
 
     const changeAddServices = (nameState: string) => {
@@ -147,24 +165,18 @@ const Additional:React.FC = () => {
             </div>
             <div className={styles.tariffBlock}>
                 <span>Тариф</span>
-                <div>
-                    <input
-                        type="radio"
-                        value={"Поминутно"}
-                        checked={tariffLocal === "Поминутно"}
-                        onChange={changeTariffLease}
-                    />
-                    <span>Поминутно, 7₽/мин</span>
-                </div>
-                <div>
-                    <input
-                        type="radio"
-                        value={"На сутки"}
-                        checked={tariffLocal === "На сутки"}
-                        onChange={changeTariffLease}
-                    />
-                    <span>На сутки, 1999 ₽/сутки</span>
-                </div>
+                {
+                    rates.map(rate =>
+                        <div>
+                            <input
+                                type="radio"
+                                checked={tariffLocal.id === rate.id}
+                                onChange={() => changeTariffLease(rate)}
+                            />
+                            <span>{`${rate.rateTypeId.name}, ${rate.price} ₽/${rate.rateTypeId.unit}`}</span>
+                        </div>
+                    )
+                }
             </div>
             <div className={styles.addBlock}>
                 <span>Доп услуги</span>

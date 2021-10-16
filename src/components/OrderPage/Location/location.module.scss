@@ -1,15 +1,19 @@
 .location{
   margin-top: 2.2vw;
   width: 51vw;
+  height: 74.5vh;
   @media screen and (min-width: 1024px) and (max-width: 1439px){
     width: 60vw;
+    height: 71.5vh;
   }
   @media screen and (min-width: 768px) and (max-width: 1023px){
     width: 73vw;
+    height: 71.5vh;
   }
   @media screen and (max-width: 767px){
     width: 100vw;
     margin-top: 5vw;
+    height: 100%;
   }
   .enterDataBlock{
     div{

@@ -1,19 +1,23 @@
 import {ICar} from "./cars";
+import {IRate} from "./api";
+import {ICity} from "./cities";
+import {IPoint} from "./points";
 
 export interface CheckState {
-    city: string
-    pickUpPoint: string;
+    city: ICity
+    pickUpPoint: IPoint;
     model: ICar;
     colorSelected: string;
     lease: number;
-    tariff: string;
+    tariff: IRate;
     fullTank: boolean;
     babyChair: boolean;
     rightHandDrive: boolean;
     priceMin: number,
     priceMax: number,
     priceTotal: number,
-    dateStart: string
+    dateStart: string,
+    dateEnd: string
 }
 
 export enum CheckActionTypes {
@@ -27,14 +31,14 @@ export enum CheckActionTypes {
     Change_RightHandDrive = "Change_RightHandDrive",
     Change_Price = "Change_Price",
     Change_Total_Price = "Change_Total_Price",
-    Change_Date_Start = "Change_Date_Start"
+    Change_Date = "Change_Date"
 }
 
 interface ChangePickUpPointAction {
     type: CheckActionTypes.Change_PickUpPoint,
     payload: {
-        city: string,
-        point: string
+        city: ICity,
+        point: IPoint
     }
 }
 interface ChangeModelAction {
@@ -51,7 +55,7 @@ interface ChangeLeaseAction {
 }
 interface ChangeTariffAction {
     type: CheckActionTypes.Change_Tariff,
-    payload: string
+    payload: IRate
 }
 interface ChangeFullTankAction {
     type: CheckActionTypes.Change_FullTank,
@@ -77,10 +81,13 @@ interface ChangeTotalPrice {
     payload: number
 }
 
-interface ChangeDateStart {
-    type: CheckActionTypes.Change_Date_Start,
-    payload: string
+interface ChangeDate {
+    type: CheckActionTypes.Change_Date,
+    payload: {
+        dateStart: string,
+        dateEnd: string
+    }
 }
 export type CheckAction = ChangeBabyChairAction | ChangeColorAction |
     ChangeFullTankAction | ChangeRightHandDriveAction | ChangePickUpPointAction | ChangeModelAction |
-    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction | ChangeTotalPrice | ChangeDateStart
+    ChangeTariffAction | ChangeLeaseAction | ChangePriceAction | ChangeTotalPrice | ChangeDate

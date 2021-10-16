@@ -2,14 +2,18 @@
   display: flex;
   flex-direction: column;
   width:  51vw;
+  height: 79vh;
   @media screen and (min-width: 1024px) and (max-width: 1439px){
     width: 60vw;
+    height: 75.5vh;
   }
   @media screen and (min-width: 768px) and (max-width: 1023px){
     width: 73vw;
+    height: 75.5vh;
   }
   @media screen and (max-width: 767px){
     width: 100vw;
+    height: 100%;
   }
 
   .categories{

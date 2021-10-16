@@ -1,7 +1,8 @@
 .orderPage{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
   .upper{
     display: flex;
     flex-direction: row;
@@ -136,14 +137,9 @@
     flex-direction: row;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
-    height: 79%;
-    @media screen and (max-height: 660px) and (min-width: 1024px){
-      height: 76%;
-    }
     @media screen and (min-width: 768px) and (max-width: 1023px){
       margin-left: 15.33vw;
       margin-right: 4.17vw;
-      height: 71%;
     }
     @media screen and (max-width: 767px){
       margin-left: 6.5vw;
@@ -378,13 +374,13 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-    z-index: 2;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: rgba(255, 255, 255, 0.9);
     opacity: 0;
     pointer-events: none;
     transition: all 0.7s ease;
+    z-index: 10;
     .form{
       display: flex;
       flex-direction: column;
@@ -393,6 +389,19 @@
         line-height: 1.9vw;
         font-weight: 300;
         text-align: center;
+        @media screen and (min-width: 1024px) and (max-width: 1439px){
+          font-size: 2vw;
+          line-height: 2.375vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          font-size: 3vw;
+          line-height: 3.56vw;
+        }
+        @media screen and (max-width: 767px){
+          font-size: 6vw;
+          line-height: 7.125vw;
+          margin-bottom: 1vw;
+        }
       }
       .buttonsAction{
         display: flex;
@@ -409,12 +418,33 @@
           &:hover{
             filter: brightness(80%);
           }
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            font-size: 1.56vw;
+            line-height: 1.8vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px){
+            font-size: 2.3vw;
+            line-height: 2.67vw;
+          }
+          @media screen and (max-width: 767px){
+            font-size: 4.5vw;
+            line-height: 5.22vw;
+          }
         }
         .confirmButton{
           background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
           border-radius: 8px;
           padding: 1vw 3vw;
           margin-right: 1.1vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px){
+            margin-right: 1.5vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px){
+            margin-right: 2vw;
+          }
+          @media screen and (max-width: 767px){
+            margin-right: 4vw;
+          }
         }
         .backButton{
           background: linear-gradient(90deg, #493013 0%, #7B0C3B 100%);

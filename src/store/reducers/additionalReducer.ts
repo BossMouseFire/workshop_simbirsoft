@@ -1,11 +1,12 @@
 import {AdditionalAction, AdditionalActionTypes, AdditionalState} from "../../types/additional";
+import {IRate} from "../../types/api";
 
 
 const initialState: AdditionalState = {
     colorLocal: "",
     dateStartLocal: "",
     dateEndLocal: "",
-    tariffLocal: "",
+    tariffLocal: <IRate>{},
     fullTankState: false,
     babyChairState: false,
     rightHandDriveState: false
@@ -18,7 +19,7 @@ export const additionalReducer = (state =  initialState, action:AdditionalAction
         case AdditionalActionTypes.CHANGE_DATE_LOCAL:
             return {...state, dateStartLocal: action.payload.dateStart,
                 dateEndLocal: action.payload.dateEnd}
-        case AdditionalActionTypes.CHANGE_TARIFF_LOCAL:
+        case AdditionalActionTypes.CHANGE_TARIFF:
             return {...state, tariffLocal: action.payload}
         case AdditionalActionTypes.CHANGE_FULL_TANK_STATE:
             return {...state, fullTankState: action.payload}

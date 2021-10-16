@@ -1,8 +1,10 @@
+import {IRate} from "./api";
+
 export interface AdditionalState {
     colorLocal: string,
     dateStartLocal: string,
     dateEndLocal: string,
-    tariffLocal: string,
+    tariffLocal: IRate,
     fullTankState: boolean;
     babyChairState: boolean;
     rightHandDriveState: boolean;
@@ -11,7 +13,7 @@ export interface AdditionalState {
 export enum AdditionalActionTypes {
     CHANGE_COLOR_LOCAL = "CHANGE_COLOR_LOCAL",
     CHANGE_DATE_LOCAL = "CHANGE_DATE_END_LOCAL",
-    CHANGE_TARIFF_LOCAL = "CHANGE_TARIFF_LOCAL",
+    CHANGE_TARIFF = "CHANGE_TARIFF",
     CHANGE_FULL_TANK_STATE = "CHANGE_FULL_TANK_STATE",
     CHANGE_BABY_CHAIR_STATE = "CHANGE_BABY_CHAIR_STATE",
     CHANGE_RIGHT_HAND_DRIVE_STATE = "CHANGE_RIGHT_HAND_DRIVE_STATE"
@@ -31,8 +33,8 @@ interface ChangeDateLocal {
 }
 
 interface ChangeTariffLocal {
-    type: AdditionalActionTypes.CHANGE_TARIFF_LOCAL,
-    payload: string
+    type: AdditionalActionTypes.CHANGE_TARIFF,
+    payload: IRate
 }
 
 interface ChangeFullTankState {

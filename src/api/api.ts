@@ -1,5 +1,13 @@
 import axios from "axios";
-import {IRequestCoordinates, IRequestCities, IRequestPoints, IRequestCategories, IRequestCars} from "../types/api";
+import {
+    IRequestCoordinates,
+    IRequestCities,
+    IRequestPoints,
+    IRequestCategories,
+    IRequestCars,
+    IRequestOrderStatus, IRequestRates, IBodyOrder, IResponsePostOrder
+} from "../types/api";
+import {packageData} from "../utils/utils";
 
 const instanceApiFactory = axios.create({
     baseURL: "https://api-factory.simbirsoft1.com",
@@ -50,4 +58,17 @@ export const getCarsToCategory = async (id: string) => {
                 categoryId: id
             }
         })
+}
+
+export const getOrderStatus = async () => {
+    return await instanceApiFactory.get<IRequestOrderStatus>("/api/db/orderStatus/")
+}
+
+export const getRates = async () => {
+    return await instanceApiFactory.get<IRequestRates>("/api/db/rate")
+}
+
+export const postOrder = async (body: IBodyOrder) => {
+    const data = packageData(body)
+    return await instanceApiFactory.post<IResponsePostOrder>("/api/db/order", data)
 }

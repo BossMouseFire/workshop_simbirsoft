@@ -1,8 +1,11 @@
 import {Dispatch} from "redux";
 import {CheckAction, CheckActionTypes} from "../../types/check";
 import {ICar} from "../../types/cars";
+import {IRate} from "../../types/api";
+import {ICity} from "../../types/cities";
+import {IPoint} from "../../types/points";
 
-export const changePickUpPoint = (city: string, point: string) => {
+export const changePickUpPoint = (city: ICity, point: IPoint) => {
     return (dispatch: Dispatch<CheckAction>) => {
         dispatch({
             type: CheckActionTypes.Change_PickUpPoint,
@@ -60,7 +63,7 @@ export const changeTotalPrice = (priceTotal: number) => {
     }
 }
 
-export const changeTariff = (tariff: string) => {
+export const changeTariff = (tariff: IRate) => {
     return (dispatch: Dispatch<CheckAction>) => {
         dispatch({
             type: CheckActionTypes.Change_Tariff,
@@ -96,11 +99,13 @@ export const changeRightHandDrive = (state: boolean) => {
     }
 }
 
-export const changeDateStart = (date: string) => {
+export const changeDate = (dateStart: string, dateEnd: string) => {
     return (dispatch: Dispatch<CheckAction>) => {
         dispatch({
-            type: CheckActionTypes.Change_Date_Start,
-            payload: date
+            type: CheckActionTypes.Change_Date,
+            payload: {
+                dateStart, dateEnd
+            }
         })
     }
 }

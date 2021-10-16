@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {AdditionalAction, AdditionalActionTypes} from "../../types/additional";
+import {IRate} from "../../types/api";
 
 export const changeColorLocal = (color: string) => {
     return (dispatch: Dispatch<AdditionalAction>) => {
@@ -21,10 +22,10 @@ export const changeDateLocal = (dateStart: string, dateEnd: string) => {
     }
 }
 
-export const changeTariffLocal = (tariff: string) => {
+export const changeTariffLocal = (tariff: IRate) => {
     return (dispatch: Dispatch<AdditionalAction>) => {
         dispatch({
-            type: AdditionalActionTypes.CHANGE_TARIFF_LOCAL,
+            type: AdditionalActionTypes.CHANGE_TARIFF,
             payload: tariff
         })
     }

@@ -9,6 +9,7 @@ import {fetchCities} from "../../../store/actionCreators/cities";
 import {fetchPointsForCity} from "../../../store/actionCreators/points";
 import {getCoordinates} from "../../../api/api";
 import {IPoint} from "../../../types/points";
+import {ICity} from "../../../types/cities";
 
 const Location:React.FC = () => {
     const {idCity, point, coordinates, zoomDefault} = useTypeSelector(state => state.location)
@@ -72,11 +73,20 @@ const Location:React.FC = () => {
         setIdCityLocal(id)
         setValueInput("")
     }
+
+    const getCityObject = (name: string) => {
+        for(let i = 0; i < cities.length; i++){
+            if(cities[i].name === name){
+                return cities[i]
+            }
+        }
+        return {} as ICity
+    }
     const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
         setValueInput(e.target.value)
         pointsWithCoordinates.map(point => {
             if(point.address === e.target.value){
-                dispatch(changePickUpPoint(point.cityId.name, e.target.value))
+                dispatch(changePickUpPoint(getCityObject(point.cityId.name), point))
                 dispatch(changeZoom(16))
                 dispatch(changeCoordinates(point.coordinates))
                 dispatch(changePoint(e.target.value))
@@ -89,7 +99,7 @@ const Location:React.FC = () => {
         dispatch(changeZoom(16))
         dispatch(changeCoordinates(point.coordinates))
         dispatch(changePoint(point.address))
-        dispatch(changePickUpPoint(point.cityId.name, point.address))
+        dispatch(changePickUpPoint(getCityObject(point.cityId.name), point))
         dispatch(changeIdCity(point.cityId.id))
     }
 

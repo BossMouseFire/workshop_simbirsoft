@@ -34,3 +34,49 @@ export interface IRequestCars {
 export interface IRequestCategories{
     data: ICategory[]
 }
+
+export interface IRequestOrderStatus {
+    data: IStatus[]
+}
+
+interface IStatus {
+    id: string;
+    name: string;
+}
+
+export interface IRequestRates {
+    data: IRate[]
+}
+
+export interface IRate {
+    id: string,
+    price: number,
+    rateTypeId: IRateType
+}
+
+interface IRateType{
+    id: string,
+    unit: string,
+    name: string
+}
+
+export interface IResponsePostOrder {
+    data: {
+        id: string
+    }
+}
+
+export interface IBodyOrder {
+    orderStatusId: string,
+    cityId: string,
+    pointId: string,
+    carId: string,
+    color: string,
+    dateFrom: number,
+    dateTo: number,
+    rateId: string,
+    price: number,
+    isFullTank: boolean,
+    isNeedChildChair: boolean,
+    isRightWheel: boolean
+}

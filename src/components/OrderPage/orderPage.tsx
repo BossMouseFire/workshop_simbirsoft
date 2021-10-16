@@ -9,6 +9,7 @@ import Check from "./Check/check";
 import Model from "./Model/model";
 import Additional from "./Additional/additional";
 import Result from "./Result/result";
+import ConfirmModal from "./confirmModal";
 
 const cx = cnBind.bind(styles)
 const OrderPage:React.FC = () => {
@@ -49,87 +50,76 @@ const OrderPage:React.FC = () => {
         }
     }
     return(
-        <>
+        <div className={styles.orderPage}>
             <Menu/>
-            <div className={styles.orderPage}>
-                <div className={styles.upper}>
+            <div className={styles.upper}>
                     <span>
                         Need for drive
                     </span>
-                    <span>
+                <span>
                         Ульяновск
                     </span>
-                </div>
-                <div className={styles.blockActions}>
-                    <div className={styles.line}/>
-                    <div className={styles.actions}>
+            </div>
+            <div className={styles.blockActions}>
+                <div className={styles.line}/>
+                <div className={styles.actions}>
                         <span className={cx({activatedAction: currentBlock === 0})}
                               onClick={() => changeCurrentNumberBlock(0)}>
                             Местоположение
                         </span>
-                        <div/>
-                        <span className={cn(cx(
-                            {blockedAction: numberBlock < 1},
-                            {activatedAction: currentBlock === 1}))}
-                              onClick={() => changeCurrentNumberBlock(1)}>
+                    <div/>
+                    <span className={cn(cx(
+                        {blockedAction: numberBlock < 1},
+                        {activatedAction: currentBlock === 1}))}
+                          onClick={() => changeCurrentNumberBlock(1)}>
                             Модель
                         </span>
-                        <div/>
-                        <span className={cn(cx(
-                            {blockedAction: numberBlock < 2},
-                            {activatedAction: currentBlock === 2}))}
-                              onClick={() => changeCurrentNumberBlock(2)}>
+                    <div/>
+                    <span className={cn(cx(
+                        {blockedAction: numberBlock < 2},
+                        {activatedAction: currentBlock === 2}))}
+                          onClick={() => changeCurrentNumberBlock(2)}>
                             Дополнительно
                         </span>
-                        <div/>
-                        <span className={cn(cx(
-                            {blockedAction: numberBlock < 3},
-                            {activatedAction: currentBlock === 3}))}
-                              onClick={() => changeCurrentNumberBlock(3)}>
+                    <div/>
+                    <span className={cn(cx(
+                        {blockedAction: numberBlock < 3},
+                        {activatedAction: currentBlock === 3}))}
+                          onClick={() => changeCurrentNumberBlock(3)}>
                             Итого
                         </span>
-                    </div>
-                    <div className={styles.line}/>
                 </div>
-                <div className={styles.blockAction}>
-                    {changeCurrentBlock()}
-                    <div className={styles.verticalLine}/>
-                    <Check
-                        stateCheck={stateCheck}
-                        numberBlock={numberBlock}
-                        setNumberBlock={setNumberBlock}
-                        currentBlock={currentBlock}
-                        setCurrentBlock={setCurrentBlock}
-                        setStateConfirmModal={setStateConfirmModal}
+                <div className={styles.line}/>
+            </div>
+            <div className={styles.blockAction}>
+                {changeCurrentBlock()}
+                <div className={styles.verticalLine}/>
+                <Check
+                    stateCheck={stateCheck}
+                    numberBlock={numberBlock}
+                    setNumberBlock={setNumberBlock}
+                    currentBlock={currentBlock}
+                    setCurrentBlock={setCurrentBlock}
+                    setStateConfirmModal={setStateConfirmModal}
+                />
+                <div className={styles.helpBlock} ref={refHelp}>
+                    Нажмите на стрелку, чтобы продолжить
+                </div>
+                <div onClick={changeStateCheck}>
+                    <img
+                        src={nextIcon}
+                        className={
+                            cn(styles.nextIcon,
+                                cx({nextIconActive: stateCheck}))
+                        }
                     />
-                    <div className={styles.helpBlock} ref={refHelp}>
-                        Нажмите на стрелку, чтобы продолжить
-                    </div>
-                    <div onClick={changeStateCheck}>
-                        <img
-                            src={nextIcon}
-                            className={
-                                cn(styles.nextIcon,
-                                    cx({nextIconActive: stateCheck}))
-                            }
-                        />
-                    </div>
-                </div>
-                <div className={cn(styles.confirmModal, cx({modalActive: stateConfirmModal}))}>
-                    <div className={styles.form}>
-                        <span>Подтвердить заказ</span>
-                        <div className={styles.buttonsAction}>
-                            <div className={styles.confirmButton}>
-                                Подтвердить
-                            </div>
-                            <div className={styles.backButton} onClick={() => setStateConfirmModal(false)}>
-                                Вернуться
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </>
+            <ConfirmModal
+                stateConfirmModal={stateConfirmModal}
+                setStateConfirmModal={setStateConfirmModal}
+            />
+        </div>
     )
 }
 export default OrderPage;
