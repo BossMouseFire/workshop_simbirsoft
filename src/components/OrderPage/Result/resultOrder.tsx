@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styles from "./result.module.scss";
-import {convertNumberModel, convertUrlImg} from "../../../utils/utils";
+import {convertDate, convertNumberModel, convertUrlImg} from "../../../utils/utils";
 import {ICar} from "../../../types/cars";
 
 interface ResultOrder{
@@ -11,7 +11,10 @@ interface ResultOrder{
     babyChair: boolean
 }
 
-const ResultOrder:React.FC<ResultOrder> = ({model, dateStart, fullTank, rightHandDrive, babyChair}) => {
+const ResultOrder:React.FC<ResultOrder> = ({
+                                               model, dateStart,
+                                               fullTank, rightHandDrive,
+                                               babyChair}) => {
     return (
         <div className={styles.content}>
             <div className={styles.information}>
@@ -44,7 +47,7 @@ const ResultOrder:React.FC<ResultOrder> = ({model, dateStart, fullTank, rightHan
                 }
                 <div className={styles.addInfo}>
                     <span>Доступна с </span>
-                    <span>{dateStart}</span>
+                    <span>{convertDate(dateStart)}</span>
                 </div>
             </div>
             <div className={styles.imgBlock}>

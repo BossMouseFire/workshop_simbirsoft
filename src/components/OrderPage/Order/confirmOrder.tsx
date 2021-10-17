@@ -37,10 +37,11 @@ const ConfirmOrder:React.FC<IOrder> = ({data, numberBlock, currentBlock}) => {
             coordinates: [0, 0],
             cityId: response.cityId
         } as IPoint
+
         dispatch(changePickUpPoint(response.cityId, point))
         dispatch(changeModel(response.carId))
         dispatch(changeColorSelected(response.color))
-        dispatch(changeLease((response.dateTo - response.dateFrom) / 3600))
+        dispatch(changeLease(Math.ceil((response.dateTo - response.dateFrom) / 60000)))
         dispatch(changeTariff(response.rateId))
         dispatch(changeTotalPrice(response.price))
         dispatch(changeFullTank(response.isFullTank))

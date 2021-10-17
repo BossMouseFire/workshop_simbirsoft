@@ -28,21 +28,28 @@ const OrderPage:React.FC = () => {
     useEffect(() => {
         const url = window.location.href.split('/')
         const id = url[url.length - 1]
-        if (id) {
+        if (id && id !== 'order') {
             getOrderById(id)
                 .then(response => {
                     setResponseOrder(response.data)
                     setIsGetOrder(true)
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    addHelpBlock()
+                    console.log(error)
+                })
         } else{
-            setTimeout(() => {
-                if(window.innerWidth < 1024 && !stateHelpBlock){
-                    refHelp.current.classList.add(styles.activeHelpBlock)
-                }
-            }, 3000)
+            addHelpBlock()
         }
     }, [])
+
+    const addHelpBlock = () => {
+        setTimeout(() => {
+            if(window.innerWidth < 1024 && !stateHelpBlock){
+                refHelp.current.classList.add(styles.activeHelpBlock)
+            }
+        }, 3000)
+    }
 
     const changeStateCheck = () => {
         refHelp.current.classList.remove(styles.activeHelpBlock)

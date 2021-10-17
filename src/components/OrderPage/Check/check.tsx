@@ -48,7 +48,7 @@ const Check:React.FC<ICheck> = ({
             const id = url[url.length - 1]
             cancelOrder(id)
                 .then( () => {
-                    history.push('/')
+                    history.push('/order')
                     history.go(0)
                 })
                 .catch(error => {

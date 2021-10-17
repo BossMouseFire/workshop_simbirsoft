@@ -130,7 +130,7 @@ const Location:React.FC = () => {
                     />
                     <datalist id="brow">
                         {points.map(point =>
-                            <option value={point.address}/>
+                            <option value={point.address} key={point.id}/>
                         )}
                     </datalist>
                 </div>

@@ -49,3 +49,13 @@ export const convertNumberModel = (numberModel: string) => {
     }
     return result
 }
+
+export const convertDate = (date: string) => {
+    const dateFormat = new Date(date)
+    const day = dateFormat.getDate() > 9 ? `${dateFormat.getDate()}` : `0${dateFormat.getDate()}`
+    const month = dateFormat.getMonth() + 1 > 9 ? `${dateFormat.getMonth() + 1}` : `0${dateFormat.getMonth() + 1}`
+    const hours = dateFormat.getHours() > 9 ? `${dateFormat.getHours()}` : `0${dateFormat.getHours()}`
+    const minutes = dateFormat.getMinutes() > 9 ? `${dateFormat.getMinutes()}` : `0${dateFormat.getMinutes()}`
+
+    return `${day}.${month}.${dateFormat.getFullYear()} ${hours}:${minutes}`
+}
