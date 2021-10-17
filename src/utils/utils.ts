@@ -26,3 +26,26 @@ export const packageData = (data: IBodyOrder):FormData => {
     }
     return form
 }
+
+export const convertNumberModel = (numberModel: string) => {
+    let result = ""
+    if (numberModel){
+        numberModel = numberModel.toUpperCase()
+        numberModel = numberModel.replaceAll(" ", "")
+        for (let charIndex = 0; charIndex < numberModel.length; charIndex++){
+            if(charIndex === 0){
+                result += `${numberModel[charIndex]} `
+            } else if(charIndex === 3){
+                result += `${numberModel[charIndex]} `
+            } else if (charIndex === 5){
+                result += `${numberModel[charIndex]} `
+            } else{
+                result += numberModel[charIndex]
+            }
+        }
+        result += "73"
+    }else{
+        result += "A 777 AAA 73"
+    }
+    return result
+}

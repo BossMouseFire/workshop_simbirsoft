@@ -4,6 +4,8 @@ import cn from "classnames"
 import cnBind from "classnames/bind"
 import {useTypeSelector} from "../../../hooks/useTypeSelector";
 import {isEmptyObject} from "../../../utils/utils";
+import {cancelOrder} from "../../../api/api";
+import {useHistory} from "react-router";
 
 const cx = cnBind.bind(styles)
 
@@ -11,9 +13,9 @@ interface ICheck{
     stateCheck: boolean,
     numberBlock: number,
     currentBlock: number,
-    setNumberBlock: Dispatch<SetStateAction<number>>,
-    setCurrentBlock: Dispatch<SetStateAction<number>>,
-    setStateConfirmModal: Dispatch<SetStateAction<boolean>>
+    setNumberBlock?: Dispatch<SetStateAction<number>>,
+    setCurrentBlock?: Dispatch<SetStateAction<number>>,
+    setStateConfirmModal?: Dispatch<SetStateAction<boolean>>
 }
 
 const Check:React.FC<ICheck> = ({
@@ -39,14 +41,32 @@ const Check:React.FC<ICheck> = ({
         fullTank
     } = useTypeSelector(state => state.check)
 
+    const history = useHistory()
     const onChangeCurrentBlock = () => {
-        if(currentBlock !== 3){
+        if (currentBlock === 4){
+            const url = window.location.href.split('/')
+            const id = url[url.length - 1]
+            cancelOrder(id)
+                .then( () => {
+                    history.push('/')
+                    history.go(0)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        } else if(currentBlock !== 3){
             if (currentBlock === numberBlock){
-                setNumberBlock(state => state + 1)
+                if (setNumberBlock) {
+                    setNumberBlock(state => state + 1)
+                }
             }
-            setCurrentBlock(state => state + 1)
+            if (setCurrentBlock) {
+                setCurrentBlock(state => state + 1)
+            }
         } else{
-            setStateConfirmModal(true)
+            if (setStateConfirmModal) {
+                setStateConfirmModal(true)
+            }
         }
     }
 
@@ -60,6 +80,8 @@ const Check:React.FC<ICheck> = ({
                 return city && pickUpPoint && model.name && colorSelected && lease && tariff;
             case 3:
                 return city && pickUpPoint && model.name && colorSelected && lease && tariff;
+            case 4:
+                return true
             default:
                 return false
         }
@@ -74,7 +96,7 @@ const Check:React.FC<ICheck> = ({
                 return "Итого"
             case 3:
                 return "Заказать"
-            default:
+            case 4:
                 return "Отмена"
         }
     }
@@ -158,7 +180,8 @@ const Check:React.FC<ICheck> = ({
             <div
                 className={
                     cn(styles.buttonAction,
-                        cx({blockButtonAction: !changeStateButton()}))
+                        cx({blockButtonAction: !changeStateButton()}),
+                        cx({cancelOrderButton: numberBlock === 4}))
                 }
                 onClick={() => onChangeCurrentBlock()}>
                 {changeButtonBlock()}

@@ -5,6 +5,7 @@ import cnBind from "classnames/bind";
 import {useTypeSelector} from "../../hooks/useTypeSelector";
 import {postOrder} from "../../api/api";
 import {IBodyOrder} from "../../types/api";
+import {useHistory} from "react-router";
 const cx = cnBind.bind(styles)
 
 interface IConfirmModal {
@@ -17,6 +18,8 @@ const ConfirmModal:React.FC<IConfirmModal> = ({stateConfirmModal, setStateConfir
         city, pickUpPoint, model, colorSelected,
         tariff, priceTotal, dateStart, dateEnd,
         rightHandDrive, babyChair, fullTank } = useTypeSelector(state => state.check)
+
+    const history = useHistory()
 
     const sendOrder = () => {
         const dateStartFormatted = new Date(dateStart)
@@ -36,9 +39,11 @@ const ConfirmModal:React.FC<IConfirmModal> = ({stateConfirmModal, setStateConfir
             isRightWheel: rightHandDrive
         } as IBodyOrder
         postOrder(body)
-            .then(response =>
-                console.log(response.data.data)
-            )
+            .then(response => {
+                const id = response.data.data.id
+                history.push(`/order/${id}`)
+                history.go(0)
+            })
             .catch(error => console.log(error))
     }
 

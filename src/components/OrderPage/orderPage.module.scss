@@ -341,6 +341,9 @@
       background: #EEEEEE !important;
       pointer-events: none !important;
     }
+    .cancelOrderButton {
+      background: linear-gradient(90deg, #493013 0%, #7B0C3B 100%) !important;
+    }
     .nextIcon{
       display: none;
       @media screen and (max-width: 1023px){

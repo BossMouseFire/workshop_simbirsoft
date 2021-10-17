@@ -60,8 +60,24 @@ interface IRateType{
     name: string
 }
 
-export interface IResponsePostOrder {
+export interface IResponseOrder {
     data: {
+        orderStatusId: IStatus,
+        cityId: ICity,
+        pointId: {
+            address: string,
+            name: string,
+            id: string
+        },
+        carId: ICar,
+        color: string,
+        dateFrom: number,
+        dateTo: number,
+        rateId: IRate,
+        price: number,
+        isFullTank: boolean,
+        isNeedChildChair: boolean,
+        isRightWheel: boolean,
         id: string
     }
 }

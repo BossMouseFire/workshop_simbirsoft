@@ -5,7 +5,7 @@ import {
     IRequestPoints,
     IRequestCategories,
     IRequestCars,
-    IRequestOrderStatus, IRequestRates, IBodyOrder, IResponsePostOrder
+    IRequestOrderStatus, IRequestRates, IBodyOrder, IResponseOrder
 } from "../types/api";
 import {packageData} from "../utils/utils";
 
@@ -70,5 +70,15 @@ export const getRates = async () => {
 
 export const postOrder = async (body: IBodyOrder) => {
     const data = packageData(body)
-    return await instanceApiFactory.post<IResponsePostOrder>("/api/db/order", data)
+    return await instanceApiFactory.post<IResponseOrder>("/api/db/order", data)
+}
+
+export const getOrderById = async (id: string) => {
+    return await instanceApiFactory.get<IResponseOrder>(`/api/db/order/${id}`)
+}
+
+export const cancelOrder = async (id: string) => {
+    const formData = new FormData()
+    formData.append("orderStatusId", "5e26a1f5099b810b946c5d8c")
+    return await instanceApiFactory.put<IResponseOrder>(`/api/db/order/${id}`, formData)
 }

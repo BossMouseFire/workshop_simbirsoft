@@ -1,0 +1,21 @@
+.confirmOrder{
+  width: 51vw;
+  height: 73vh;
+  margin-top: 2.2vw;
+  @media screen and (min-width: 1024px) and (max-width: 1439px){
+    width: 60vw;
+    height: 71.5vh;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px){
+    width: 73vw;
+  }
+  @media screen and (max-width: 767px){
+    width: 100vw;
+    height: 100%;
+  }
+  .confirmOrderName{
+    font-size: 1.66vw;
+    line-height: 1.9vw;
+    margin-bottom: 1.1vw;
+  }
+}
