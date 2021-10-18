@@ -1,169 +1,166 @@
-import React, {ChangeEvent, useEffect, useState} from 'react'
-import styles from './location.module.scss'
-import {Map, Placemark, YMaps} from "react-yandex-maps";
-import {useDispatch} from "react-redux";
-import {changePickUpPoint} from "../../../store/actionCreators/check";
-import {useTypeSelector} from "../../../hooks/useTypeSelector";
-import {changeCoordinates, changeIdCity, changePoint, changeZoom} from "../../../store/actionCreators/location";
-import {fetchCities} from "../../../store/actionCreators/cities";
-import {fetchPointsForCity} from "../../../store/actionCreators/points";
-import {getCoordinates} from "../../../api/api";
-import {IPoint} from "../../../types/points";
-import {ICity} from "../../../types/cities";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import styles from "./location.module.scss";
+import { Map, Placemark, YMaps } from "react-yandex-maps";
+import { useDispatch } from "react-redux";
+import { changePickUpPoint } from "../../../store/actionCreators/check";
+import { useTypeSelector } from "../../../hooks/useTypeSelector";
+import {
+  changeCoordinates,
+  changeIdCity,
+  changePoint,
+  changeZoom,
+} from "../../../store/actionCreators/location";
+import { fetchCities } from "../../../store/actionCreators/cities";
+import { fetchPointsForCity } from "../../../store/actionCreators/points";
+import { getCoordinates } from "../../../api/api";
+import { IPoint } from "../../../types/points";
+import { ICity } from "../../../types/cities";
 
-const Location:React.FC = () => {
-    const {idCity, point, coordinates, zoomDefault} = useTypeSelector(state => state.location)
-    const {cities} = useTypeSelector(state => state.cities)
-    const {points} = useTypeSelector(state => state.points)
-    const [valueInput, setValueInput] = useState<string>(point)
-    const [pointsWithCoordinates, setPointsWithCoordinates] = useState<IPoint[]>([])
-    const [idCityLocal, setIdCityLocal] = useState<string>(idCity)
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchCities())
-        dispatch(changeZoom(10))
-    }, [])
+const Location: React.FC = () => {
+  const { idCity, point, coordinates, zoomDefault } = useTypeSelector(
+    (state) => state.location
+  );
+  const { cities } = useTypeSelector((state) => state.cities);
+  const { points } = useTypeSelector((state) => state.points);
+  const [valueInput, setValueInput] = useState<string>(point);
+  const [pointsWithCoordinates, setPointsWithCoordinates] = useState<IPoint[]>(
+    []
+  );
+  const [idCityLocal, setIdCityLocal] = useState<string>(idCity);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCities());
+    dispatch(changeZoom(10));
+  }, []);
 
-    useEffect(() => {
-        if(cities.length > 0){
-            dispatch(fetchPointsForCity(idCity ? idCity : cities[0].id ))
-        }
-    }, [cities])
-
-    useEffect(() => {
-        getPointsCoordinates()
-    }, [points])
-
-    useEffect(() => {
-        if(pointsWithCoordinates.length > 0){
-            if (!idCityLocal){
-                dispatch(changeCoordinates(pointsWithCoordinates[0].coordinates))
-            }
-            else{
-                pointsWithCoordinates.map((point, index) => {
-                    if (point.cityId.id === idCityLocal) {
-                        dispatch(changeCoordinates(pointsWithCoordinates[index].coordinates))
-                    }
-                })
-            }
-            dispatch(changeZoom(10))
-        }
-    }, [pointsWithCoordinates])
-
-    const getPointsCoordinates = () => {
-        let promises:any = [];
-        points.map(point => {
-            promises.push(getCoordinates(`${point.cityId.name}, ${point.address}`))
-        })
-        Promise.all(promises).then(
-            response => {
-                let newArray = points;
-                newArray.map((item, index) =>
-                    // @ts-ignore
-                    item.coordinates = response[index])
-                setPointsWithCoordinates(newArray)
-            }
-        )
-            .catch(error => console.log(error))
-
+  useEffect(() => {
+    if (cities.length > 0) {
+      dispatch(fetchPointsForCity(idCity ? idCity : cities[0].id));
     }
-    const onChangeIdCity = (e: ChangeEvent<HTMLSelectElement>) => {
-        const id = e.target.value
-        dispatch(fetchPointsForCity(id))
-        setIdCityLocal(id)
-        setValueInput("")
-    }
+  }, [cities]);
 
-    const getCityObject = (name: string) => {
-        for(let i = 0; i < cities.length; i++){
-            if(cities[i].name === name){
-                return cities[i]
-            }
-        }
-        return {} as ICity
-    }
-    const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
-        setValueInput(e.target.value)
-        pointsWithCoordinates.map(point => {
-            if(point.address === e.target.value){
-                dispatch(changePickUpPoint(getCityObject(point.cityId.name), point))
-                dispatch(changeZoom(16))
-                dispatch(changeCoordinates(point.coordinates))
-                dispatch(changePoint(e.target.value))
-                dispatch(changeIdCity(point.cityId.id))
-            }
-        })
-    }
-    const onClickPoint = (point: IPoint) => {
-        setValueInput(point.address)
-        dispatch(changeZoom(16))
-        dispatch(changeCoordinates(point.coordinates))
-        dispatch(changePoint(point.address))
-        dispatch(changePickUpPoint(getCityObject(point.cityId.name), point))
-        dispatch(changeIdCity(point.cityId.id))
-    }
+  useEffect(() => {
+    getPointsCoordinates();
+  }, [points]);
 
+  useEffect(() => {
+    if (pointsWithCoordinates.length > 0) {
+      if (!idCityLocal) {
+        dispatch(changeCoordinates(pointsWithCoordinates[0].coordinates));
+      } else {
+        pointsWithCoordinates.map((point, index) => {
+          if (point.cityId.id === idCityLocal) {
+            dispatch(
+              changeCoordinates(pointsWithCoordinates[index].coordinates)
+            );
+          }
+        });
+      }
+      dispatch(changeZoom(10));
+    }
+  }, [pointsWithCoordinates]);
 
-    return(
-        <div className={styles.location}>
-            <div className={styles.enterDataBlock}>
-                <div>
-                    <span>Город</span>
-                    <select onChange={onChangeIdCity}>
-                        {cities.map((city) =>
-                            <option
-                                key={city.id}
-                                value={city.id}
-                                selected={idCity === city.id}
-                            >
-                                {city.name}
-                            </option>
-                        )}
-                    </select>
-                </div>
-                <div>
-                    <span>Пункт выдачи</span>
-                    <input
-                        list="brow"
-                        placeholder={"Начните вводить пункт ..."}
-                        value={valueInput} onChange={onChangePoint}
-                    />
-                    <datalist id="brow">
-                        {points.map(point =>
-                            <option value={point.address} key={point.id}/>
-                        )}
-                    </datalist>
-                </div>
-            </div>
-            <div className={styles.mapBlock}>
-                <span>Выбрать на карте:</span>
-                <YMaps>
-                    <Map
-                        state={{ center: coordinates, zoom: zoomDefault }}
-                    >
-                        {pointsWithCoordinates.map((point) =>
-                            <Placemark
-                                key={point.id}
-                                geometry={
-                                    point.coordinates
-                                }
-                                properties={
-                                    {
-                                        balloonContent:
-                                            `<strong>Информация о пункте выдачи</strong> <hr/> Адрес: ${point.address}`
-                                    }
-                                }
-                                modules={
-                                    ['geoObject.addon.balloon', 'geoObject.addon.hint']
-                                }
-                                onClick={() => onClickPoint(point)}
-                            />
-                        )}
-                    </Map>
-                </YMaps>
-            </div>
+  const getPointsCoordinates = () => {
+    let promises: any = [];
+    points.map((point) => {
+      promises.push(getCoordinates(`${point.cityId.name}, ${point.address}`));
+    });
+    Promise.all(promises).then((response) => {
+      let newArray = points;
+      newArray.map(
+        (item, index) =>
+          // @ts-ignore
+          (item.coordinates = response[index])
+      );
+      setPointsWithCoordinates(newArray);
+    });
+  };
+  const onChangeIdCity = (e: ChangeEvent<HTMLSelectElement>) => {
+    const id = e.target.value;
+    dispatch(fetchPointsForCity(id));
+    setIdCityLocal(id);
+    setValueInput("");
+  };
+  const getCityObject = (name: string) => {
+    const city = cities.find((city) => city.name === name);
+    if (city) {
+      return city;
+    }
+    return {} as ICity;
+  };
+  const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
+    setValueInput(e.target.value);
+    pointsWithCoordinates.map((point) => {
+      if (point.address === e.target.value) {
+        dispatch(changePickUpPoint(getCityObject(point.cityId.name), point));
+        dispatch(changeZoom(16));
+        dispatch(changeCoordinates(point.coordinates));
+        dispatch(changePoint(e.target.value));
+        dispatch(changeIdCity(point.cityId.id));
+      }
+    });
+  };
+  const onClickPoint = (point: IPoint) => {
+    setValueInput(point.address);
+    dispatch(changeZoom(16));
+    dispatch(changeCoordinates(point.coordinates));
+    dispatch(changePoint(point.address));
+    dispatch(changePickUpPoint(getCityObject(point.cityId.name), point));
+    dispatch(changeIdCity(point.cityId.id));
+  };
+
+  return (
+    <div className={styles.location}>
+      <div className={styles.enterDataBlock}>
+        <div>
+          <span>Город</span>
+          <select onChange={onChangeIdCity}>
+            {cities.map((city) => (
+              <option
+                key={city.id}
+                value={city.id}
+                selected={idCity === city.id}
+              >
+                {city.name}
+              </option>
+            ))}
+          </select>
         </div>
-    )
-}
+        <div>
+          <span>Пункт выдачи</span>
+          <input
+            list="brow"
+            placeholder={"Начните вводить пункт ..."}
+            value={valueInput}
+            onChange={onChangePoint}
+          />
+          <datalist id="brow">
+            {points.map((point) => (
+              <option value={point.address} key={point.id} />
+            ))}
+          </datalist>
+        </div>
+      </div>
+      <div className={styles.mapBlock}>
+        <span>Выбрать на карте:</span>
+        <YMaps>
+          <Map state={{ center: coordinates, zoom: zoomDefault }}>
+            {pointsWithCoordinates.map((point) => (
+              <Placemark
+                key={point.id}
+                geometry={point.coordinates}
+                properties={{
+                  balloonContent: `<strong>Информация о пункте выдачи</strong> <hr/> Адрес: ${point.address}`,
+                }}
+                modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
+                onClick={() => onClickPoint(point)}
+              />
+            ))}
+          </Map>
+        </YMaps>
+      </div>
+    </div>
+  );
+};
 
-export default Location
+export default Location;

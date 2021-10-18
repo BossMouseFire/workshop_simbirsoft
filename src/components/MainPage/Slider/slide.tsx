@@ -1,31 +1,31 @@
-import React from "react"
-import styles from "./slider.module.scss"
-import {useHistory} from "react-router";
-import {ISlide} from "../../../types/slide";
-interface ISlideInfo{
-    information: ISlide
+import React from "react";
+import styles from "./slider.module.scss";
+import { useHistory } from "react-router";
+import { ISlide } from "../../../types/slide";
+interface ISlideInfo {
+  information: ISlide;
 }
 
-const Slide:React.FC<ISlideInfo> = ({information}) => {
-    const history = useHistory();
-    return(
-        <div className={styles.slide} style={{backgroundImage: information.imageUrl}}>
-            <div className={styles.content}>
-                <div className={styles.head}>
-                    {information.head}
-                </div>
-                <div className={styles.mainText}>
-                    {information.mainText}
-                </div>
-                <div className={styles.about} style={{background: information.backgroundButton}}
-                     onClick={() => history.push('/order')}>
-                    <p>
-                        Подробнее
-                    </p>
-                </div>
-            </div>
+const Slide: React.FC<ISlideInfo> = ({ information }) => {
+  const history = useHistory();
+  return (
+    <div
+      className={styles.slide}
+      style={{ backgroundImage: information.imageUrl }}
+    >
+      <div className={styles.content}>
+        <div className={styles.head}>{information.head}</div>
+        <div className={styles.mainText}>{information.mainText}</div>
+        <div
+          className={styles.about}
+          style={{ background: information.backgroundButton }}
+          onClick={() => history.push("/order")}
+        >
+          <p>Подробнее</p>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Slide
+export default Slide;
