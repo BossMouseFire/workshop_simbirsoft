@@ -1,62 +1,66 @@
-.model{
+.model {
   display: flex;
   flex-direction: column;
-  width:  51vw;
-  @media screen and (min-width: 1024px) and (max-width: 1439px){
+  width: 51vw;
+  height: 79vh;
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
     width: 60vw;
+    height: 75.5vh;
   }
-  @media screen and (min-width: 768px) and (max-width: 1023px){
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
     width: 73vw;
+    height: 75.5vh;
   }
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 767px) {
     width: 100vw;
+    height: 100%;
   }
 
-  .categories{
+  .categories {
     display: flex;
     flex-direction: row;
     margin-top: 2.2vw;
-    @media screen and (min-width: 768px) and (max-width: 1023px){
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       flex-wrap: wrap;
       gap: 1vw;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       flex-wrap: wrap;
       gap: 2vw;
       margin-top: 10vw;
     }
-    div{
+    div {
       display: flex;
       align-items: center;
       margin-right: 1.1vw;
-      @media screen and (min-width: 1024px) and (max-width: 1439px){
+      @media screen and (min-width: 1024px) and (max-width: 1439px) {
         flex-wrap: wrap;
       }
-      @media screen and (min-width: 768px) and (max-width: 1023px){
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
         width: 20%;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         width: 40%;
       }
-      span{
+      span {
         color: #999999;
         font-weight: 300;
         font-size: 1vw;
         line-height: 1.1vw;
         margin-top: 0.3vw;
         margin-left: 0.5vw;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 1.36vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 1.83vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 4.38vw;
           line-height: 4vw;
         }
       }
-      input{
+      input {
         margin-left: 0;
         -webkit-appearance: none;
         width: 1vw;
@@ -65,57 +69,57 @@
         outline: none;
         border: 1px solid #999999;
         &:checked {
-          border: 3px solid #0EC261;
+          border: 3px solid #0ec261;
         }
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           width: 1.36vw;
           height: 1.36vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           width: 1.83vw;
           height: 1.83vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           width: 3vw;
           height: 3vw;
         }
       }
     }
   }
-  .carsBlock{
+  .carsBlock {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     margin-top: 3.3vw;
     overflow-y: scroll;
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       grid-template-columns: 1fr;
       margin-top: 10vw;
     }
-    .carNull{
+    .carNull {
       color: #999999;
       margin-right: 12.39vw;
       font-size: 1.5vw;
       font-weight: 300;
-      @media screen and (min-width: 768px) and (max-width: 1023px){
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
         font-size: 2vw;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         font-size: 5vw;
       }
     }
-    .loader{
+    .loader {
       display: inline-block;
       width: 12vw;
       height: 12vw;
       margin-top: 5vw;
       margin-left: 25vw;
-      @media screen and (min-width: 768px) and (max-width: 1023px){
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
         width: 18vw;
         height: 18vw;
         margin-left: 32vw;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         width: 30vw;
         height: 30vw;
         margin-left: 30vw;
@@ -125,17 +129,17 @@
         display: block;
         width: 10vw;
         height: 10vw;
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           width: 16vw;
           height: 16vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           width: 28vw;
           height: 28vw;
         }
         border-radius: 50%;
-        border: 6px solid #0EC261;
-        border-color: #0EC261 transparent #0EC261 transparent;
+        border: 6px solid #0ec261;
+        border-color: #0ec261 transparent #0ec261 transparent;
         animation: loader 1.7s linear infinite;
       }
     }
@@ -148,83 +152,83 @@
       }
     }
 
-    .car{
+    .car {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      width:100%;
+      width: 100%;
       height: 15.5vw;
-      border: 1px solid #EEEEEE;
+      border: 1px solid #eeeeee;
       padding: 1.1vw;
       cursor: pointer;
       transition: border 0.7s ease;
-      @media screen and (min-width: 1024px) and (max-width: 1439px){
+      @media screen and (min-width: 1024px) and (max-width: 1439px) {
         height: 18.2vw;
       }
-      @media screen and (min-width: 768px) and (max-width: 1023px){
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
         height: 22.2vw;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         width: 70vw;
         height: 42.6vw;
         padding: 3vw;
       }
-      &:hover{
+      &:hover {
         border: 1px solid #999999;
       }
-      .name{
+      .name {
         font-size: 1.25vw;
         line-height: 1.46vw;
         font-weight: 300;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 1.76vw;
           line-height: 1.5vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 2.34vw;
           line-height: 2vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 5vw;
           line-height: 4.27vw;
         }
       }
-      .price{
-        @media screen and (max-width: 767px){
+      .price {
+        @media screen and (max-width: 767px) {
           margin-top: 1vw;
         }
-        span{
+        span {
           font-weight: 300;
           font-size: 1vw;
           line-height: 1.1vw;
           color: #999999;
-          @media screen and (min-width: 1024px) and (max-width: 1439px){
+          @media screen and (min-width: 1024px) and (max-width: 1439px) {
             font-size: 1.36vw;
             line-height: 1.24vw;
           }
-          @media screen and (min-width: 768px) and (max-width: 1023px){
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
             font-size: 1.8vw;
             line-height: 1.6vw;
           }
-          @media screen and (max-width: 767px){
+          @media screen and (max-width: 767px) {
             font-size: 3.84vw;
             line-height: 3.4vw;
           }
         }
       }
-      .carImg{
+      .carImg {
         position: relative;
         margin-top: auto;
         align-self: flex-end;
         width: 70%;
         margin-right: 1.1vw;
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           width: 60%;
         }
       }
     }
-    .carActivated{
-      border: 1px solid #0EC261 !important;
+    .carActivated {
+      border: 1px solid #0ec261 !important;
     }
   }
 }
