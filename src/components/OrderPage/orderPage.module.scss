@@ -1,8 +1,9 @@
-.orderPage{
+.orderPage {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  .upper{
+  min-height: 100vh;
+  position: relative;
+  .upper {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,160 +12,158 @@
     margin-left: 8.8vw;
     margin-right: 4.4vw;
     height: 7%;
-    @media screen and (min-width: 1024px) and (max-width: 1439px){
+    @media screen and (min-width: 1024px) and (max-width: 1439px) {
       margin-top: 3.125vw;
     }
-    @media screen and (min-width: 768px) and (max-width: 1023px){
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       margin-top: 4.17vw;
       margin-left: 15.33vw;
       margin-right: 4.17vw;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       flex-direction: column;
       align-items: flex-end;
       margin-right: 5vw;
       margin-bottom: 10vw;
       margin-left: 0;
     }
-    span{
-      &:nth-child(1){
-        color: #0EC261;
+    span {
+      &:nth-child(1) {
+        color: #0ec261;
         font-size: 2.08vw;
         font-weight: bold;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 2.93vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 3.9vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 9.37vw;
         }
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         font-size: 1vw;
         line-height: 16px;
         color: #999999;
         font-weight: 300;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 1.36vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 1.83vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 4.38vw;
         }
       }
     }
   }
-  .blockActions{
+  .blockActions {
     margin-top: 2.2vw;
     height: 5%;
-    @media screen and (min-width: 1024px) and (max-width: 1439px){
+    @media screen and (min-width: 1024px) and (max-width: 1439px) {
       height: 7.4%;
     }
-    @media screen and (min-width: 768px) and (max-width: 1023px){
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       height: 7%;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       height: 11%;
       margin-top: 0;
     }
-    .line{
-      border: 1px solid #EEEEEE;
+    .line {
+      border: 1px solid #eeeeee;
     }
-    .actions{
+    .actions {
       display: flex;
       flex-direction: row;
       align-items: center;
       margin: 0.56vw 4.4vw 0.56vw 8.8vw;
-      @media screen and (min-width: 1024px) and (max-width: 1439px){
+      @media screen and (min-width: 1024px) and (max-width: 1439px) {
         margin: 1.2vw 4.4vw 1.2vw 8.8vw;
       }
-      @media screen and (min-width: 768px) and (max-width: 1023px){
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
         margin: 1.75vw 4.17vw 1.75vw 15.33vw;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         flex-wrap: wrap;
         gap: 3vw;
         margin: 5vw 0 5vw 6.5vw;
       }
-      div{
+      div {
         width: 0;
         height: 0;
         border-style: solid;
         border-width: 0.42vw 0 0.42vw 0.56vw;
         border-color: transparent transparent transparent #999999;
         margin-right: 1.1vw;
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           border-width: 1.26vw 0 1.26vw 1.68vw;
-          &:nth-of-type(3){
+          &:nth-of-type(3) {
             margin-left: 4vw;
           }
         }
       }
-      span{
+      .confirmSpan{
+        cursor: auto;
+      }
+      span {
         cursor: pointer;
         font-weight: bold;
         font-size: 1vw;
         line-height: 1.1vw;
         margin-right: 1.1vw;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 1.36vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 1.83vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 4.38vw;
           margin-right: 0;
         }
       }
-      .activatedAction{
-        color: #0EC261;
+      .activatedAction {
+        color: #0ec261;
         pointer-events: none;
       }
-      .blockedAction{
+      .blockedAction {
         color: #999999;
         pointer-events: none;
       }
     }
   }
-  .blockAction{
+  .blockAction {
     display: flex;
     flex-direction: row;
     margin-left: 8.8vw;
     margin-right: 4.4vw;
-    height: 79%;
-    @media screen and (max-height: 660px) and (min-width: 1024px){
-      height: 76%;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1023px){
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
       margin-left: 15.33vw;
       margin-right: 4.17vw;
-      height: 71%;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 767px) {
       margin-left: 6.5vw;
     }
-    .verticalLine{
-      border: 1px solid #EEEEEE;
+    .verticalLine {
+      border: 1px solid #eeeeee;
       margin-left: 13vw;
-      @media screen and (min-width: 1024px) and (max-width: 1439px){
+      @media screen and (min-width: 1024px) and (max-width: 1439px) {
         margin-left: 4vw;
       }
-      @media screen and (max-width: 1023px){
+      @media screen and (max-width: 1023px) {
         display: none;
       }
     }
-    .check{
+    .check {
       display: flex;
       flex-direction: column;
       width: 19.9vw;
       margin-left: 2.8vw;
       margin-top: 2.2vw;
-      @media screen and (max-width: 1023px){
+      @media screen and (max-width: 1023px) {
         width: 35vw;
         opacity: 0;
         position: absolute;
@@ -174,115 +173,115 @@
         border: 1px black solid;
         padding: 2vw 0;
         transition: opacity 0.7s ease;
-        pointer-events:none;
+        pointer-events: none;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         width: 70vw;
         right: 5vw;
       }
-      .head{
+      .head {
         text-align: right;
         font-size: 1.25vw;
         font-weight: 500;
         line-height: 1.46vw;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           font-size: 2vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           font-size: 2.5vw;
           margin-right: 1vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           font-size: 5vw;
           margin-right: 1vw;
           margin-top: 1vw;
         }
       }
-      .requisites{
+      .requisites {
         margin-top: 2vw;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           margin-top: 3vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           margin-top: 4vw;
           margin-left: 1vw;
           margin-right: 1vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           margin-top: 4vw;
           margin-left: 2vw;
           margin-right: 2vw;
         }
-        div{
+        div {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: flex-end;
           margin-bottom: 1vw;
-          span{
+          span {
             font-size: 1vw;
             font-weight: 300;
             line-height: 1.2vw;
             text-align: right;
-            @media screen and (min-width: 1024px) and (max-width: 1439px){
+            @media screen and (min-width: 1024px) and (max-width: 1439px) {
               font-size: 1.36vw;
               line-height: 1.5vw;
             }
-            @media screen and (min-width: 768px) and (max-width: 1023px){
+            @media screen and (min-width: 768px) and (max-width: 1023px) {
               font-size: 1.83vw;
               line-height: 2vw;
             }
-            @media screen and (max-width: 767px){
+            @media screen and (max-width: 767px) {
               font-size: 4vw;
               line-height: 5vw;
             }
-            &:nth-child(2){
+            &:nth-child(2) {
               color: #999999;
               max-width: 10vw;
-              @media screen and (min-width: 768px) and (max-width: 1023px){
+              @media screen and (min-width: 768px) and (max-width: 1023px) {
                 max-width: 20vw;
               }
-              @media screen and (max-width: 767px){
+              @media screen and (max-width: 767px) {
                 max-width: 30vw;
               }
             }
           }
         }
       }
-      .priceBlock{
+      .priceBlock {
         margin-top: 2.2vw;
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           margin-top: 3.2vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           margin-top: 4.2vw;
           margin-left: 1vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           margin-top: 6vw;
           margin-left: 2vw;
         }
-        span{
+        span {
           font-weight: 500;
           font-style: normal;
           font-size: 1.1vw;
           line-height: 1.1vw;
           color: #121212;
-          @media screen and (min-width: 1024px) and (max-width: 1439px){
+          @media screen and (min-width: 1024px) and (max-width: 1439px) {
             font-size: 1.36vw;
           }
-          @media screen and (min-width: 768px) and (max-width: 1023px){
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
             font-size: 1.83vw;
           }
-          @media screen and (max-width: 767px){
+          @media screen and (max-width: 767px) {
             font-size: 4.38vw;
           }
         }
       }
-      .buttonAction{
+      .buttonAction {
         width: 19.9vw;
         margin-top: 2.2vw;
-        background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+        background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
         background-blend-mode: darken;
         border-radius: 8px;
         text-align: center;
@@ -293,20 +292,20 @@
         padding: 1vw;
         cursor: pointer;
         transition: all 0.7s ease;
-        &:hover{
+        &:hover {
           filter: brightness(80%);
         }
-        @media screen and (min-width: 1024px) and (max-width: 1439px){
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
           margin-top: 3.2vw;
           font-size: 1.5vw;
         }
-        @media screen and (min-width: 768px) and (max-width: 1023px){
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
           width: 100%;
           border-radius: 0;
           margin-top: 4.2vw;
           font-size: 1.75vw;
         }
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
           width: 100%;
           border-radius: 0;
           margin-top: 4.2vw;
@@ -315,39 +314,42 @@
         }
       }
     }
-    .helpBlock{
+    .helpBlock {
       display: none;
       transform: translateY(180%);
-      @media screen and (max-width: 1023px){
+      @media screen and (max-width: 1023px) {
         display: block;
         position: fixed;
-        background-color: #0EC261;
+        background-color: #0ec261;
         padding: 1vw 2vw;
         border-radius: 8px;
-        color: #EEEEEE;
+        color: #eeeeee;
         bottom: 3vw;
         right: 13vw;
         transition: all 1s ease;
         transform: translateY(100%);
         opacity: 0;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         right: 50vw;
         bottom: 7vw;
         width: 45vw;
       }
     }
-    .activeHelpBlock{
+    .activeHelpBlock {
       transform: translateY(0%);
       opacity: 1;
     }
-    .blockButtonAction{
-      background: #EEEEEE !important;
+    .blockButtonAction {
+      background: #eeeeee !important;
       pointer-events: none !important;
     }
-    .nextIcon{
+    .cancelOrderButton {
+      background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%) !important;
+    }
+    .nextIcon {
       display: none;
-      @media screen and (max-width: 1023px){
+      @media screen and (max-width: 1023px) {
         display: block;
         position: fixed;
         bottom: 3vw;
@@ -356,20 +358,110 @@
         height: 5vw;
         transition: all 0.7s ease;
       }
-      @media screen and (max-width: 767px){
+      @media screen and (max-width: 767px) {
         width: 12vw;
         height: 12vw;
         bottom: 8vw;
         right: 8vw;
       }
     }
-    .checkActive{
+    .checkActive {
       opacity: 1;
       pointer-events: auto;
     }
-    .nextIconActive{
+    .nextIconActive {
       transform: rotate(180deg);
       transition: all 0.7s ease;
     }
+  }
+
+  .confirmModal {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.7s ease;
+    z-index: 10;
+    .form {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 1.6vw;
+        line-height: 1.9vw;
+        font-weight: 300;
+        text-align: center;
+        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+          font-size: 2vw;
+          line-height: 2.375vw;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+          font-size: 3vw;
+          line-height: 3.56vw;
+        }
+        @media screen and (max-width: 767px) {
+          font-size: 6vw;
+          line-height: 7.125vw;
+          margin-bottom: 1vw;
+        }
+      }
+      .buttonsAction {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2.2vw;
+        div {
+          font-weight: 500;
+          font-size: 1.25vw;
+          line-height: 1.45vw;
+          text-align: center;
+          color: white;
+          cursor: pointer;
+          transition: all 0.7s ease;
+          &:hover {
+            filter: brightness(80%);
+          }
+          @media screen and (min-width: 1024px) and (max-width: 1439px) {
+            font-size: 1.56vw;
+            line-height: 1.8vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            font-size: 2.3vw;
+            line-height: 2.67vw;
+          }
+          @media screen and (max-width: 767px) {
+            font-size: 4.5vw;
+            line-height: 5.22vw;
+          }
+        }
+        .confirmButton {
+          background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
+          border-radius: 8px;
+          padding: 1vw 3vw;
+          margin-right: 1.1vw;
+          @media screen and (min-width: 1024px) and (max-width: 1439px) {
+            margin-right: 1.5vw;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            margin-right: 2vw;
+          }
+          @media screen and (max-width: 767px) {
+            margin-right: 4vw;
+          }
+        }
+        .backButton {
+          background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+          border-radius: 4px;
+          padding: 1vw 3vw;
+        }
+      }
+    }
+  }
+  .modalActive {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
