@@ -21,7 +21,6 @@ const CarCard: React.FC<ICarCard> = ({ car }) => {
   const { idCar } = useTypeSelector((state) => state.model);
 
   const onChangeCar = (car: ICar) => {
-    console.log(car);
     dispatch(changePrice(car.priceMin, car.priceMax));
     dispatch(changeModel(car));
     dispatch(changeIdCar(car.id));

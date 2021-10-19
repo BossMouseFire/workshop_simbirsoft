@@ -83,10 +83,7 @@ const Location: React.FC = () => {
   };
   const getCityObject = (name: string) => {
     const city = cities.find((city) => city.name === name);
-    if (city) {
-      return city;
-    }
-    return {} as ICity;
+    return city || {} as ICity;
   };
   const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
     setValueInput(e.target.value);

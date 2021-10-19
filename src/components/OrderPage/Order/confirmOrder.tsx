@@ -54,7 +54,7 @@ const ConfirmOrder: React.FC<IOrder> = ({
       <div className={stylesOrderPage.blockActions}>
         <div className={stylesOrderPage.line} />
         <div className={stylesOrderPage.actions}>
-          <span>Заказ номер {id}</span>
+          <span className={stylesOrderPage.confirmSpan}>Заказ номер {id}</span>
         </div>
         <div className={stylesOrderPage.line} />
       </div>

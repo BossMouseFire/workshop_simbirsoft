@@ -56,7 +56,6 @@ const ConfirmModal: React.FC<IConfirmModal> = ({
         history.push(`/order/${id}`);
         history.go(0);
       })
-      .catch((error) => console.log(error));
   };
 
   return (
